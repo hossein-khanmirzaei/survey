@@ -1,0 +1,32 @@
+h2 {
+    font-weight: bold;
+    margin-top: 10%;
+    font-size: 17px !important;
+    text-align: center;
+    height: 57px;
+    background-image: url("../../assets/img/divider.png");
+    background-repeat: no-repeat;
+    background-position: top;
+    /*padding-bottom: 50px;*/
+}
+
+div.SBContainer{
+    margin-top: 35%;
+    text-align: center;
+}
+
+.StartButton{
+    background-color: transparent !important;
+    color: #316ba5 !important;
+    border: none;
+    height: 110px;
+    width: 285px;
+    background-image: url('../../assets/img/start.png');
+    background-repeat: no-repeat;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: IRANSans;
+    padding-right: 40px;
+    margin-top: -50px;
+    text-align: center;
+}
