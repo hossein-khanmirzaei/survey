@@ -64,8 +64,27 @@ body {
 	padding: 8px 0px 0 25px;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+.form-check-label {
+	margin-left: 0;
+	margin-right: 20px;
+}
+.survey_prv_btn{
+	background-color: transparent !important;
+	color: #316ba5 !important;
+	border: none;
+	height: 53px;
+	width: 139px;
+	background-image: url('assets/img/nxt.png');
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.survey_next_btn{
+	background-color: transparent !important;
+	color: #316ba5 !important;
+	border: none;
+	height: 53px;
+	width: 139px;
+	background-image: url('assets/img/prv.png');
+	background-repeat: no-repeat;
+	text-align: center;
 }

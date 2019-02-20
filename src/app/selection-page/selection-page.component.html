@@ -8,36 +8,36 @@
     <div class="col">
       <div class="row pr-5 mb-4">
         <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-          <label class="form-check-label" for="exampleRadios1">
+          <input class="form-check-input" type="radio" name="surveyType" id="surveyType1" value="DirectComment" [checked]="selectedSurveyType === 'DirectComment'" (change)="onSurveyTypeChanged('DirectComment')">
+          <label class="form-check-label" for="surveyType1">
             ارسال نظر مستقیم به واحد مورد نظر
           </label>
         </div>
         <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-          <label class="form-check-label" for="exampleRadios2">
+          <input class="form-check-input" type="radio" name="surveyType" id="surveyType2" value="ProfessorsResidence" [checked]="selectedSurveyType === 'ProfessorsResidence'" (change)="onSurveyTypeChanged('ProfessorsResidence')">
+          <label class="form-check-label" for="surveyType2">
             نظرسنجی استادسراهای پردیس
           </label>
         </div>
       </div>
       <div class="row pr-5 mb-4">
         <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
+          <input class="form-check-input" type="radio" name="surveyType" id="surveyType3" value="StudentsResidence" [checked]="selectedSurveyType === 'StudentsResidence'" (change)="onSurveyTypeChanged('StudentsResidence')">
+          <label class="form-check-label" for="surveyType3">
             نظرسنجی خوابگاه های دانشجویی
           </label>
         </div>
         <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
+          <input class="form-check-input" type="radio" name="surveyType" id="surveyType4" value="Resturant" [checked]="selectedSurveyType === 'CateringFacilities'" (change)="onSurveyTypeChanged('CateringFacilities')">
+          <label class="form-check-label" for="surveyType4">
             نظرسنجی رستوران و کافی شاپ پردیس
           </label>
         </div>
       </div>
       <div class="row pr-5 mb-4">
         <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
+          <input class="form-check-input" type="radio" name="surveyType" id="surveyType5" value="EducationalFacilities" [checked]="selectedSurveyType === 'EducationalFacilities'" (change)="onSurveyTypeChanged('EducationalFacilities')">
+          <label class="form-check-label" for="surveyType5">
             نظرسنجی فضای آموزشی پردیس
           </label>
         </div>
@@ -46,6 +46,6 @@
   </div>
   <div class="row justify-content-between align-items-center h-25">
     <input type="button" routerLink="/Relation" class="survey_prv_btn" value="قبلی">
-    <input type="button" routerLink="/Selection" class="survey_next_btn" value="بعدی">
+    <input type="button" routerLink="{{nextPageLink}}" class="survey_next_btn" value="بعدی">
   </div>
 </div>
