@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SurveyService } from '../survey.service';
 import { Page } from '../page';
+import { Question } from '../question';
 
 @Component({
   selector: 'app-question-container',
@@ -9,10 +11,12 @@ import { Page } from '../page';
 export class QuestionContainerComponent implements OnInit {
 
   @Input() page: Page;
+  //currentQuestion: Question;
 
-  constructor() { }
+  constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
+    //this.page = this.surveyService.getCurrentSurveyContent().pages[0];
   }
 
 }

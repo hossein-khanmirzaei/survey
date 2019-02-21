@@ -11,25 +11,12 @@ export class SurveyService {
 
   constructor() { }
 
-  getSurveyContent(surveyId: string): Survey {
-    switch (surveyId) {
-      case 'ProfessorsResidence': {
-        return SurveyContent.find(s => s.surveyId === 'ProfessorsResidence');
-      }
-      case 'StudentsResidence': {
-        return SurveyContent.find(s => s.surveyId === 'StudentsResidence');
-      }
-      case 'CateringFacilities': {
-        return SurveyContent.find(s => s.surveyId === 'CateringFacilities');
-        break;
-      }
-      case 'EducationalFacilities': {
-        return SurveyContent.find(s => s.surveyId === 'EducationalFacilities');
-        break;
-      }
-      default: {
-        return new Survey();
-      }
-    }
+  
+  getCurrentSurveyContent(): Survey {
+    return SurveyContent.find(s => s.surveyId === this.selectedSurveyType);
   }
+  getSurveyContent(surveyId: string): Survey {
+    return SurveyContent.find(s => s.surveyId === surveyId);
+  }
+
 }

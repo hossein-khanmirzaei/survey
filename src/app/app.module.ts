@@ -11,6 +11,7 @@ import { SurveyPageComponent } from './survey-page/survey-page.component';
 import { DirectCommentPageComponent } from './direct-comment-page/direct-comment-page.component';
 import { LastPageComponent } from './last-page/last-page.component';
 import { QuestionContainerComponent } from './question-container/question-container.component';
+import { RatingComponent } from './rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuestionContainerComponent } from './question-container/question-contai
     SurveyPageComponent,
     DirectCommentPageComponent,
     LastPageComponent,
-    QuestionContainerComponent
+    QuestionContainerComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,12 @@
 <div class="container-fluid h-100 w-100">
+  <div class="row justify-content-center align-items-start" style="margin-top:-20px">
+    <h5>
+      {{surveyContent['surveyTitle']}}
+    </h5>
+  </div>
   <app-question-container [page]="currentPage"></app-question-container>
   <div class="row justify-content-between align-items-center h-25">
-    <input type="button" routerLink="/Selection" class="survey_prv_btn" value="قبلی">
-    <input type="button" routerLink="/Survey/Page/1" class="survey_next_btn" value="بعدی">
+    <input type="button" routerLink="{{prevPageLink}}" (click)="goToPrevPage()" class="survey_prv_btn" value="قبلی">
+    <input type="button" routerLink="{{nextPageLink}}" (click)="goToNextPage()" class="survey_next_btn" value="{{nextLinkValue}}">
   </div>
 </div>

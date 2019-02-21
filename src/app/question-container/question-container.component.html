@@ -1,11 +1,19 @@
-<diV class="row justify-content-center align-items-center h-25">
-  <p class="col text-center font-weight-bold">
-    لطفاً برای ادامه یکی از گزینه های ذیل را انتخاب نمائید:
+<diV class="row justify-content-center align-items-center">
+  <p class="col text-right font-weight-bold">
+    {{page['pageTitle']}}
   </p>
 </diV>
-<div class="row justify-content-center align-items-center h-50">
+<div class="row justify-content-center align-items-top">
   <div class="col">
-    <div class="row pr-5 mb-4">
+    <div class="row mb-3" *ngFor="let q of page['questions']">
+      <div class="col">
+        <div class="row justify-content-start" style="font-size:0.95em">
+          {{q['title']}}
+        </div>
+        <div class="row justify-content-end">
+            <app-rating [question]="q"></app-rating>
+        </div>        
+      </div>
     </div>
   </div>
 </div>

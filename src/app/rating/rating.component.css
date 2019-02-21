@@ -1,0 +1,24 @@
+.btn{
+    width: 80px;
+    font-size: 0.75em;
+}
+.worse{
+    color: white;
+    background-color: #B71C1C;
+}
+.bad{
+    color: white;
+    background-color:#E57373;
+}
+.so-so{    
+    color: white;
+    background-color: #FFB74D;
+}
+.good{
+    color: white;
+    background-color:#81C784;
+}
+.better{    
+    color: white;
+    background-color: #1B5E20;
+}
