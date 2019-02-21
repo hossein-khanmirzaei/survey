@@ -6,13 +6,16 @@
 <div class="row justify-content-center align-items-top">
   <div class="col">
     <div class="row mb-3" *ngFor="let q of page['questions']">
-      <div class="col">
+      <div [ngSwitch]="q['type']" class="col">
         <div class="row justify-content-start" style="font-size:0.95em">
           {{q['title']}}
         </div>
-        <div class="row justify-content-end">
-            <app-rating [question]="q"></app-rating>
-        </div>        
+        <div *ngSwitchCase="'rating'" class="row justify-content-end">
+          <app-rating [question]="q"></app-rating>
+        </div>
+        <div *ngSwitchCase="'comment'" class="row justify-content-end">
+            <textarea [(ngModel)]="q['answer']" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="کادر اعلام نظر"style=" font-size:0.85em"></textarea>
+        </div>
       </div>
     </div>
   </div>
