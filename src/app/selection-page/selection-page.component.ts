@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-selection-page',
@@ -12,19 +13,53 @@ import { SurveyService } from '../survey.service';
 export class SelectionPageComponent implements OnInit {
 
   selectedSurveyType: string;
+  relationCode: number;
   nextPageLink: string;
-  constructor(private surveyService: SurveyService) { }
+  isDirectCommentDisable: boolean = null;
+  isProfessorsResidenceDisabled: boolean = null;
+  isStudentsResidenceDisabled: boolean = null;
+  isCateringFacilitiesDisabled: boolean = null;
+  isEducationalFacilitiesDisabled: boolean = null;
+  constructor(private router: Router, private surveyService: SurveyService) { }
 
   ngOnInit() {
-    this.selectedSurveyType = this.surveyService.selectedSurveyType;
+    this.getInitialData();
     this.onSurveyTypeChanged(this.selectedSurveyType);
+  }
+
+  getInitialData() {
+    this.relationCode = this.surveyService.relationCode;
+    this.selectedSurveyType = this.surveyService.selectedSurveyType;
+    if(this.relationCode == 1 || this.relationCode == 2){
+      this.isDirectCommentDisable = null;
+      this.isProfessorsResidenceDisabled = null;
+      this.isStudentsResidenceDisabled = true;
+      this.isCateringFacilitiesDisabled = null;
+      this.isEducationalFacilitiesDisabled = null;      
+    }
+    else if(this.relationCode == 3 || this.relationCode == 4){
+      this.isDirectCommentDisable = null;
+      this.isProfessorsResidenceDisabled = true;
+      this.isStudentsResidenceDisabled = null;
+      this.isCateringFacilitiesDisabled = null;
+      this.isEducationalFacilitiesDisabled = null;
+    }
+  }
+
+  onSubmit(validity: boolean) {
+    if (validity) {
+      this.router.navigateByUrl('/' + this.nextPageLink);
+    }
+    else {
+      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+    }
   }
 
   onSurveyTypeChanged(val: string) {
     this.surveyService.selectedSurveyType = val;
     switch (val) {
       case 'DirectComment': {
-        this.nextPageLink = "/DirectComment";        
+        this.nextPageLink = "/DirectComment";
         break;
       }
       case 'ProfessorsResidence': {

@@ -1,51 +1,63 @@
-<div class="container-fluid h-100 w-100">
-  <diV class="row justify-content-center align-items-center h-25">
-    <p class="col text-center font-weight-bold">
-      به منظور افزایش دقت داده های بدست آمده از این سامانه لطفا ارتباط خود با پردیس را اعلام نمایید.
-    </p>
-  </diV>
-  <div class="row justify-content-center align-items-center h-50">
-    <div class="col">
-      <div class="row pr-5 mb-4">
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-          <label class="form-check-label" for="exampleRadios1">
-            هیئت علمی
-          </label>
+<form #relationForm="ngForm">
+  <div class="container-fluid h-100 w-100">
+    <diV class="row justify-content-center align-items-center h-25">
+      <p class="col text-center font-weight-bold">
+        به منظور افزایش دقت داده های بدست آمده از این سامانه لطفا ارتباط خود با پردیس را اعلام نمایید.
+      </p>
+    </diV>
+    <div class="row justify-content-center align-items-center h-50">
+      <div class="col">
+        <div class="row pr-5 mb-4">
+          <div class="form-check col">
+            <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
+              id="relationRadios1" value="1" required #relationReference="ngModel">
+            <label class="form-check-label" for="exampleRadios1">
+              هیئت علمی
+            </label>
+          </div>
+          <div class="form-check col">
+            <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
+              id="relationRadios2" value="2" required>
+            <label class="form-check-label" for="exampleRadios2">
+              هیئت علمی مهمان
+            </label>
+          </div>
         </div>
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-          <label class="form-check-label" for="exampleRadios2">
-            هیئت علمی مهمان
-          </label>
+        <div class="row pr-5 mb-4">
+          <div class="form-check col">
+            <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
+              id="relationRadios3" value="3" required>
+            <label class="form-check-label" for="exampleRadios3">
+              دانشجو
+            </label>
+          </div>
+          <div class="form-check col">
+            <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
+              id="relationRadios3" value="4" required>
+            <label class="form-check-label" for="exampleRadios3">
+              دانشجوی مهمان
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="row pr-5 mb-4">
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
-            دانشجو
-          </label>
-        </div>
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
-            دانشجوی مهمان
-          </label>
-        </div>
-      </div>
-      <div class="row pr-5 mb-4">
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
-            سایر مهمانان محترم
-          </label>
+        <div class="row pr-5 mb-4">
+          <div class="form-check col-sm-6">
+            <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
+              id="relationRadios3" value="5" required>
+            <label class="form-check-label" for="exampleRadios3">
+              سایر مهمانان محترم
+            </label>
+          </div>
+          <div class="col-sm-3" [hidden]="relationReference.valid || relationReference.untouched"
+            style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;">
+            انتخاب معتبر نیست!
+          </div>
         </div>
       </div>
     </div>
+    <div class="row justify-content-between align-items-center h-25">
+      <input type="button" routerLink="/Identity" class="survey_prv_btn" value="قبلی">
+      <input type="button" class="survey_next_btn" value="بعدی" (click)="onSubmit(relationForm.form.valid)"
+        [disabled]="!relationForm.form.valid">
+    </div>
   </div>
-  <div class="row justify-content-between align-items-center h-25">
-    <input type="button" routerLink="/Identity" class="survey_prv_btn" value="قبلی">
-    <input type="button" routerLink="/Selection" class="survey_next_btn" value="بعدی">
-  </div>
-</div>
+</form>

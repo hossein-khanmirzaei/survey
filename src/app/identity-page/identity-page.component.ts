@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SurveyService } from '../survey.service';
+import { Gender } from '../gender.enum';
 
 @Component({
   selector: 'app-identity-page',
@@ -10,9 +13,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdentityPageComponent implements OnInit {
 
-  constructor() { }
+  nationalCode: string;
+  age: number;
+  gender: Gender;
+
+  constructor(private router: Router, private surveyService: SurveyService) { }
 
   ngOnInit() {
+    this.getInitialData();
   }
 
+  getInitialData() {
+    this.nationalCode = this.surveyService.nationalCode;
+    this.age = this.surveyService.age;
+    this.gender = this.surveyService.gender;
+  }
+
+  onSubmit(validity: boolean) {
+    if (validity) {
+      this.surveyService.nationalCode = this.nationalCode;
+      this.surveyService.age = this.age;
+      this.surveyService.gender = this.gender;
+      this.router.navigateByUrl('/Relation');
+    }
+    else {
+      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+    }
+  }
+
+  isValidIranianNationalCode(input) {
+    if (!/^\d{10}$/.test(input))
+      return false;
+
+    var check = parseInt(input[9]);
+    var sum = 0;
+    var i;
+    for (i = 0; i < 9; ++i) {
+      sum += parseInt(input[i]) * (10 - i);
+    }
+    sum %= 11;
+
+    return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
+  }
 }

@@ -91,11 +91,15 @@ body {
 }
 .survey_next_btn{
 	background-color: transparent !important;
-	color: #316ba5 !important;
+	color: #316ba5;
 	border: none;
 	height: 53px;
 	width: 139px;
 	background-image: url('assets/img/prv.png');
 	background-repeat: no-repeat;
 	text-align: center;
+}
+input[type="button"]:disabled{
+    background-image: url('assets/img/prv-disabled.png');
+    color: #666666;
 }
