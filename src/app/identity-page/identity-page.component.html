@@ -26,7 +26,7 @@
           <label for="age" class="col-sm-2 col-form-label">سن:</label>
           <div class="col-sm-5">
             <input type="number" [(ngModel)]="age" class="form-control" id="age" name="age"
-              placeholder="لطفاً سن خود را وارد نمایید" required min="15" max="80" #ageReference="ngModel">
+              placeholder="لطفاً سن خود را وارد نمایید" required [min]="15" [max]="80" #ageReference="ngModel">
             <div [hidden]="ageReference.valid || ageReference.untouched"
               style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;">
               سن معتبر نیست!
