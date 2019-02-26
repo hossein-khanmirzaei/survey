@@ -1,33 +1,45 @@
-<div class="container-fluid h-100 w-100">
-  <diV class="row justify-content-center align-items-center h-25">
-    <p class="col text-center font-weight-bold">
-      لطفا نظرات و پشنهادات سازنده خود را پس از انتخاب گزینه مربوطه جهت ارسال در کادر ذیل وارد نمایید:
-    </p>
-  </diV>
-  <div class="row justify-content-center align-items-center h-50">
-    <div class="col">
-      <div class="row pr-5 mb-4">
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-          <label class="form-check-label" for="exampleRadios1">
-            ارسال نظر مستقیم به رئیس پردیس
-          </label>
+<form #directCommentForm="ngForm" class="h-100 w-100">
+  <div class="container-fluid h-100 w-100">
+    <diV class="row justify-content-center align-items-center h-25">
+      <p class="col text-center font-weight-bold">
+        لطفا نظرات و پشنهادات سازنده خود را پس از انتخاب گزینه مربوطه جهت ارسال در کادر ذیل وارد نمایید:
+      </p>
+    </diV>
+    <div class="row justify-content-center align-items-center h-50">
+      <div class="col">
+        <div class="row pr-5 mb-4">
+          <div class="form-check col">
+            <input type="radio" [(ngModel)]="directCommentChoice" class="form-check-input" name="directCommentRadios"
+              id="directCommentRadios1" value="1" required #directCommentReference="ngModel">
+            <label class="form-check-label" for="directCommentRadios1">
+              ارسال نظر مستقیم به رئیس پردیس
+            </label>
+          </div>
+          <div class="form-check col">
+            <input type="radio" [(ngModel)]="directCommentChoice" class="form-check-input" name="directCommentRadios"
+              id="directCommentRadios2" value="2" required>
+            <label class="form-check-label" for="directCommentRadios2">
+              ارسال نظر به معاون اجرایی پردیس
+            </label>
+          </div>
         </div>
-        <div class="form-check col">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-          <label class="form-check-label" for="exampleRadios2">
-            ارسال نظر به معاون اجرایی پردیس
-          </label>
+        <div class="row pr-5 mb-4">
+          <div class="col-sm-3" [hidden]="directCommentReference.valid || directCommentReference.untouched"
+            style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;">
+            انتخاب معتبر نیست!
+          </div>
         </div>
-      </div>
-      <div class="row form-group px-5 mb-4">
-        <label for="exampleFormControlTextarea1">کادر اعلام نظر:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        <div class="row form-group px-5 mb-4">
+          <label for="exampleFormControlTextarea1">کادر اعلام نظر:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
       </div>
     </div>
+    <div class="row justify-content-between align-items-center h-25">
+      <input type="button" routerLink="/Selection" class="survey_prv_btn" value="قبلی">
+      <!--<input type="button" routerLink="/Last" class="survey_next_btn" value="تکمیل">-->
+      <input type="button" class="survey_next_btn" value="تکمیل" (click)="onSubmit(directCommentForm.form.valid)"
+        [disabled]="!directCommentForm.form.valid">
+    </div>
   </div>
-  <div class="row justify-content-between align-items-center h-25">
-    <input type="button" routerLink="/Selection" class="survey_prv_btn" value="قبلی">
-    <input type="button" routerLink="/Last" class="survey_next_btn" value="تکمیل">
-  </div>
-</div>
+</form>

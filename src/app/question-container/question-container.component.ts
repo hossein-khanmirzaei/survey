@@ -6,7 +6,10 @@ import { Question } from '../question';
 @Component({
   selector: 'app-question-container',
   templateUrl: './question-container.component.html',
-  styleUrls: ['./question-container.component.css']
+  styleUrls: ['./question-container.component.css'],
+  host: {
+    class: 'h-100 w-100'
+  }
 })
 export class QuestionContainerComponent implements OnInit {
 

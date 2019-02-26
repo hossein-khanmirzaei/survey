@@ -14,59 +14,45 @@ body {
 	background-size: cover; 
 	font-family: IRANSans;
 	color: rgb(109, 112, 114);
+
 }
 .survey-header {
-	/*padding-bottom: 50px;
-	
-	width: 1192px;*/
+	padding-bottom: 50px;
+	width: 1192px;
 	height: 133px;
-	/*margin: auto auto;
-	*/
+	margin: auto auto;
 	background-image: url("assets/img/head.png");
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 	background-position: bottom;
 }
-/*
 .survey-main {
-	background: #fafafa;
 	width: 1191px;
-	height: auto;
 	margin: auto;
 }
-*/
-/*
 .survey-container {
     background: #fafafa;
     width: 821px;
     float: left;
-	padding: 0 10px 0 40px;
-	min-height: 555px;
-    /*height: 555px;*/
-/*}
-*/
-/*
+    padding: 0 10px 0 40px;
+    height: 555px;
+}
 .survey-gallery {
 	background: #fafafa;
 	width: 370px;
 	float: right;
-	height: auto;
-	min-height: 555px;
-	/*height: 555px;*/
-/*	text-align: center;
+	height: 555px;
+	text-align: center;
 	padding: 35px 0 0 0;
 }
-*/
 .survey-footer {
-/*	clear: both;
-	width: 1193px;*/
+	clear: both;
+	width: 1193px;
 	height: 66px;
 	background-image: url("assets/img/footer.png");
 	background-repeat: no-repeat;
 	background-position: top;
-
-/*	padding-bottom: 10px;
-	margin: auto auto;*/
-
+	padding-bottom: 10px;
+	margin: auto auto;
 }
 .survey-copyright {
 	font-size: 12px !important;
@@ -74,7 +60,6 @@ body {
 	color: #ffffff;
 	padding: 8px 0px 0 25px;
 }
-
 .form-check-label {
 	margin-left: 0;
 	margin-right: 20px;
@@ -103,3 +88,30 @@ input[type="button"]:disabled{
     background-image: url('assets/img/prv-disabled.png');
     color: #666666;
 }
+
+/*
+body {
+	background-image: url("assets/img/main-bg.jpg");
+	background-size: cover; 
+	font-family: IRANSans;
+	color: rgb(109, 112, 114);
+}
+.survey-header {
+	height: 133px;
+	background-image: url("assets/img/head.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+.survey-footer {
+	height: 66px;
+	background-image: url("assets/img/footer.png");
+	background-repeat: no-repeat;
+	background-position: top;
+}
+.survey-copyright {
+	font-size: 12px !important;
+	text-align: left;
+	color: #ffffff;
+	padding: 8px 0px 0 25px;
+}
+*/

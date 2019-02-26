@@ -12,6 +12,7 @@ export class SurveyService {
   age: number = null;
   gender: Gender;
   relationCode: number = null;
+  directCommentChoice: number = null;
 
   selectedSurveyType: string;
 

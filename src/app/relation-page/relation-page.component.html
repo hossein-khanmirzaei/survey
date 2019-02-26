@@ -1,4 +1,4 @@
-<form #relationForm="ngForm">
+<form #relationForm="ngForm" class="h-100 w-100">
   <div class="container-fluid h-100 w-100">
     <diV class="row justify-content-center align-items-center h-25">
       <p class="col text-center font-weight-bold">
@@ -11,14 +11,14 @@
           <div class="form-check col">
             <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
               id="relationRadios1" value="1" required #relationReference="ngModel">
-            <label class="form-check-label" for="exampleRadios1">
+            <label class="form-check-label" for="relationRadios1">
               هیئت علمی
             </label>
           </div>
           <div class="form-check col">
             <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
               id="relationRadios2" value="2" required>
-            <label class="form-check-label" for="exampleRadios2">
+            <label class="form-check-label" for="relationRadios2">
               هیئت علمی مهمان
             </label>
           </div>
@@ -27,14 +27,14 @@
           <div class="form-check col">
             <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
               id="relationRadios3" value="3" required>
-            <label class="form-check-label" for="exampleRadios3">
+            <label class="form-check-label" for="relationRadios3">
               دانشجو
             </label>
           </div>
           <div class="form-check col">
             <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
               id="relationRadios3" value="4" required>
-            <label class="form-check-label" for="exampleRadios3">
+            <label class="form-check-label" for="relationRadios4">
               دانشجوی مهمان
             </label>
           </div>
@@ -43,7 +43,7 @@
           <div class="form-check col-sm-6">
             <input type="radio" [(ngModel)]="relationCode" class="form-check-input" name="relationRadios"
               id="relationRadios3" value="5" required>
-            <label class="form-check-label" for="exampleRadios3">
+            <label class="form-check-label" for="relationRadios5">
               سایر مهمانان محترم
             </label>
           </div>
