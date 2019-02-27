@@ -8,15 +8,47 @@
     <div class="col">
       <div class="row mb-3 ml-1" *ngFor="let q of page['questions']">
         <div [ngSwitch]="q['type']" class="col">
-          <div class="row justify-content-start" style="font-size:0.95em">
-            {{q['title']}}
+          <div *ngSwitchCase="'rating'" class="row">
+            <div class="col">
+              <div class="row justify-content-start" style="font-size:0.95em">
+                {{q['title']}}
+              </div>
+              <app-rating class="row justify-content-end" [question]="q"></app-rating>
+            </div>
           </div>
-          <div *ngSwitchCase="'rating'" class="row justify-content-end">
-            <app-rating [question]="q"></app-rating>
+          <div *ngSwitchCase="'comment'" class="row">
+            <div class="col">
+              <div class="row justify-content-start" style="font-size:0.95em">
+                {{q['title']}}
+              </div>
+              <div class="row justify-content-center">
+                <textarea [(ngModel)]="q['answer']" class="form-control col-md-9" rows="2" placeholder="کادر اعلام نظر"
+                  style=" font-size:0.85em"></textarea>
+              </div>
+            </div>
           </div>
-          <div *ngSwitchCase="'comment'" class="row justify-content-center">
-            <textarea [(ngModel)]="q['answer']" class="form-control col-md-9" rows="2" placeholder="کادر اعلام نظر"
-              style=" font-size:0.85em"></textarea>
+          <div *ngSwitchCase="'message'" class="row justify-content-center">
+            <div class="col">
+              <div class="row justify-content-center text-justify" style="font-size:0.95em">
+                {{q['title']}}
+              </div>
+            </div>
+          </div>
+          <div *ngSwitchCase="'options'" class="row">
+            <div class="col">
+              <div class="row justify-content-start mb-2" style="font-size:0.95em">
+                {{q['title']}}
+              </div>
+              <div class="row justify-content-around">
+                <div *ngFor="let opt of q['options']" style="font-size:0.85em">
+                  <label for="opt_answer_{{opt}}" >
+                    <input id="opt_answer_{{opt}}" [value]='opt' type="radio" name="opt"
+                      [(ngModel)]="radioSelected">
+                    {{opt}}
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
