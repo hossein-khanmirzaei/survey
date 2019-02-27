@@ -17,23 +17,24 @@ export class IdentityPageComponent implements OnInit {
   age: number;
   gender: Gender;
 
-  constructor(private router: Router, private surveyService: SurveyService) { }
+  constructor(private router: Router, private surveyService: SurveyService) {
+  }
 
   ngOnInit() {
     this.getInitialData();
   }
 
   getInitialData() {
-    this.nationalCode = this.surveyService.nationalCode;
-    this.age = this.surveyService.age;
-    this.gender = this.surveyService.gender;
+    this.nationalCode = this.surveyService.surveyAnswer.nationalCode;
+    this.age = this.surveyService.surveyAnswer.age;
+    this.gender = this.surveyService.surveyAnswer.gender;
   }
 
   onSubmit(validity: boolean) {
     if (validity) {
-      this.surveyService.nationalCode = this.nationalCode;
-      this.surveyService.age = this.age;
-      this.surveyService.gender = this.gender;
+      this.surveyService.surveyAnswer.nationalCode = this.nationalCode;
+      this.surveyService.surveyAnswer.age = this.age;
+      this.surveyService.surveyAnswer.gender = this.gender;
       this.router.navigateByUrl('/Relation');
     }
     else {

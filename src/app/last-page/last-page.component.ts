@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SurveyService } from '../survey.service';
 
 @Component({
   selector: 'app-last-page',
@@ -10,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LastPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private surveyService: SurveyService) {
+    if (!this.surveyService.surveyAnswer.nationalCode) {
+      this.router.navigateByUrl('/Initial');
+    }
+  }
 
   ngOnInit() {
   }
 
+  get diagnostic() { return JSON.stringify(this.surveyService); }
 }

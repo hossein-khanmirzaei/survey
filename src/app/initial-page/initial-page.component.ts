@@ -13,6 +13,7 @@ export class InitialPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

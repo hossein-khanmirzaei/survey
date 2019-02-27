@@ -1,5 +1,5 @@
 export class Question {
-    questionId: number;
+    questionCode: string;
     title: string;
     type: string;
     answer: string;

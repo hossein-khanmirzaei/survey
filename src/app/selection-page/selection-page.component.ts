@@ -20,7 +20,12 @@ export class SelectionPageComponent implements OnInit {
   isStudentsResidenceDisabled: boolean = null;
   isCateringFacilitiesDisabled: boolean = null;
   isEducationalFacilitiesDisabled: boolean = null;
-  constructor(private router: Router, private surveyService: SurveyService) { }
+
+  constructor(private router: Router, private surveyService: SurveyService) {
+    if (!this.surveyService.surveyAnswer.nationalCode) {
+      this.router.navigateByUrl('/Initial');
+    }
+  }
 
   ngOnInit() {
     this.getInitialData();
@@ -28,16 +33,16 @@ export class SelectionPageComponent implements OnInit {
   }
 
   getInitialData() {
-    this.relationCode = this.surveyService.relationCode;
-    this.selectedSurveyType = this.surveyService.selectedSurveyType;
-    if(this.relationCode == 1 || this.relationCode == 2){
+    this.relationCode = this.surveyService.surveyAnswer.relationCode;
+    this.selectedSurveyType = this.surveyService.surveyAnswer.selectedSurveyType;
+    if (this.relationCode == 1 || this.relationCode == 2) {
       this.isDirectCommentDisable = null;
       this.isProfessorsResidenceDisabled = null;
       this.isStudentsResidenceDisabled = true;
       this.isCateringFacilitiesDisabled = null;
-      this.isEducationalFacilitiesDisabled = null;      
+      this.isEducationalFacilitiesDisabled = null;
     }
-    else if(this.relationCode == 3 || this.relationCode == 4){
+    else if (this.relationCode == 3 || this.relationCode == 4) {
       this.isDirectCommentDisable = null;
       this.isProfessorsResidenceDisabled = true;
       this.isStudentsResidenceDisabled = null;
@@ -56,7 +61,7 @@ export class SelectionPageComponent implements OnInit {
   }
 
   onSurveyTypeChanged(val: string) {
-    this.surveyService.selectedSurveyType = val;
+    this.surveyService.surveyAnswer.selectedSurveyType = val;
     switch (val) {
       case 'DirectComment': {
         this.nextPageLink = "/DirectComment";

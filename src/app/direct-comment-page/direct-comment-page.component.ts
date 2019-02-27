@@ -14,19 +14,23 @@ export class DirectCommentPageComponent implements OnInit {
 
   directCommentChoice: number;
 
-  constructor(private router: Router, private surveyService: SurveyService) { }
+  constructor(private router: Router, private surveyService: SurveyService) {
+    if (!this.surveyService.surveyAnswer.nationalCode) {
+      this.router.navigateByUrl('/Initial');
+    }
+  }
 
   ngOnInit() {
     this.getInitialData();
   }
 
   getInitialData() {
-    this.directCommentChoice = this.surveyService.relationCode;
+    this.directCommentChoice = this.surveyService.surveyAnswer.directCommentChoice;
   }
 
   onSubmit(validity: boolean) {
     if (validity) {
-      this.surveyService.directCommentChoice = this.directCommentChoice;
+      this.surveyService.surveyAnswer.directCommentChoice = this.directCommentChoice;
       this.router.navigateByUrl('/Last');
     }
     else {

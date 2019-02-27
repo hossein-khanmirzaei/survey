@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Page } from '../page';
 import { Survey } from '../survey';
+import { RatingAnswer } from '../survey-answer';
 
 @Component({
   selector: 'app-survey-page',
@@ -22,8 +23,12 @@ export class SurveyPageComponent implements OnInit {
   nextLinkValue: string;
   currentPageNumber: number;
 
-  constructor(private route: ActivatedRoute, private surveyService: SurveyService) {
-    this.surveyService.selectedSurveyType = "ProfessorsResidence"; //temp
+  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService) {
+    if (!this.surveyService.surveyAnswer.nationalCode) {
+      this.router.navigateByUrl('/Initial');
+    }
+    //this.surveyService.surveyAnswer.ratingAnswers = [];
+    //this.surveyService.surveyAnswer.selectedSurveyType = "ProfessorsResidence"; //temp
   }
 
   ngOnInit() {

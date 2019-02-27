@@ -14,19 +14,23 @@ export class RelationPageComponent implements OnInit {
 
   relationCode: number;
 
-  constructor(private router: Router, private surveyService: SurveyService) { }
+  constructor(private router: Router, private surveyService: SurveyService) {
+    if (!this.surveyService.surveyAnswer.nationalCode) {
+      this.router.navigateByUrl('/Initial');
+    }
+  }
 
   ngOnInit() {
     this.getInitialData();
   }
 
   getInitialData() {
-    this.relationCode = this.surveyService.relationCode;
+    this.relationCode = this.surveyService.surveyAnswer.relationCode;
   }
 
   onSubmit(validity: boolean) {
     if (validity) {
-      this.surveyService.relationCode = this.relationCode;
+      this.surveyService.surveyAnswer.relationCode = this.relationCode;
       this.router.navigateByUrl('/Selection');
     }
     else {
