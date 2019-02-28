@@ -14,6 +14,7 @@ import { DirectCommentPageComponent } from './direct-comment-page/direct-comment
 import { LastPageComponent } from './last-page/last-page.component';
 import { QuestionContainerComponent } from './question-container/question-container.component';
 import { RatingComponent } from './rating/rating.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RatingComponent } from './rating/rating.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

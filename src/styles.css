@@ -13,12 +13,13 @@ body {
 	background-image: url("assets/img/main-bg.jpg");
 	background-size: cover; 
 	font-family: IRANSans;
+	font-size: 1.4rem;
 	color: rgb(109, 112, 114);
 
 }
 .survey-header {
 	padding-bottom: 50px;
-	width: 1192px;
+	width: 1730px; /*1192px;*/
 	height: 133px;
 	margin: auto auto;
 	background-image: url("assets/img/head.png");
@@ -26,30 +27,30 @@ body {
 	background-position: bottom;
 }
 .survey-main {
-	width: 1191px;
+	width: 1730px; /*1191px;*/
 	margin: auto;
 }
 .survey-container {
     background: #fafafa;
-    width: 821px;
+    width: 1360px; /*821px;*/
     float: left;
     padding: 0 10px 0 40px;
-    height: 555px;
+    height: 755px; /*555px*/
 }
 .survey-gallery {
 	background: #fafafa;
 	width: 370px;
 	float: right;
-	height: 555px;
+	height: 755px; /*555px*/
 	text-align: center;
 	padding: 35px 0 0 0;
 }
 .survey-footer {
 	clear: both;
-	width: 1193px;
+	width: 1730px; /*1193px;*/
 	height: 66px;
 	background-image: url("assets/img/footer.png");
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 	background-position: top;
 	padding-bottom: 10px;
 	margin: auto auto;
@@ -70,7 +71,7 @@ body {
 	border: none;
 	height: 53px;
 	width: 139px;
-	background-image: url('assets/img/nxt.png');
+	background-image: url('assets/img/prv.png');
 	background-repeat: no-repeat;
 	text-align: center;
 }
@@ -80,12 +81,12 @@ body {
 	border: none;
 	height: 53px;
 	width: 139px;
-	background-image: url('assets/img/prv.png');
+	background-image: url('assets/img/nxt.png');
 	background-repeat: no-repeat;
 	text-align: center;
 }
 input[type="button"]:disabled{
-    background-image: url('assets/img/prv-disabled.png');
+    background-image: url('assets/img/nxt-disabled.png');
     color: #666666;
 }
 

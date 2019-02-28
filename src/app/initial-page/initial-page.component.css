@@ -1,6 +1,6 @@
 h2 {
     font-weight: bold;
-    font-size: 17px !important;
+    /*font-size: 17px !important;*/
     height: 57px;
     background-image: url("../../assets/img/divider.png");
     background-repeat: no-repeat;

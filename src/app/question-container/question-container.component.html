@@ -10,15 +10,15 @@
         <div [ngSwitch]="q['type']" class="col">
           <div *ngSwitchCase="'rating'" class="row">
             <div class="col">
-              <div class="row justify-content-start" style="font-size:0.95em">
+              <div class="row justify-content-start mb-2" style="font-size:0.95em">
                 {{q['title']}}
               </div>
-              <app-rating class="row justify-content-end" [question]="q"></app-rating>
+              <app-rating class="row justify-content-center" [question]="q"></app-rating>
             </div>
           </div>
           <div *ngSwitchCase="'comment'" class="row">
             <div class="col">
-              <div class="row justify-content-start" style="font-size:0.95em">
+              <div class="row justify-content-start mb-2" style="font-size:0.95em">
                 {{q['title']}}
               </div>
               <div class="row justify-content-center">
@@ -41,9 +41,8 @@
               </div>
               <div class="row justify-content-around">
                 <div *ngFor="let opt of q['options']" style="font-size:0.85em">
-                  <label for="opt_answer_{{opt}}" >
-                    <input id="opt_answer_{{opt}}" [value]='opt' type="radio" name="opt"
-                      [(ngModel)]="radioSelected">
+                  <label for="opt_answer_{{opt}}">
+                    <input id="opt_answer_{{opt}}" [value]='opt' type="radio" name="opt" [(ngModel)]="radioSelected">
                     {{opt}}
                   </label>
                 </div>

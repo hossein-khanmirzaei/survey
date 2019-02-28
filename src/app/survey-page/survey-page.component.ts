@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Page } from '../page';
 import { Survey } from '../survey';
-import { RatingAnswer } from '../survey-answer';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-survey-page',
@@ -23,7 +23,7 @@ export class SurveyPageComponent implements OnInit {
   nextLinkValue: string;
   currentPageNumber: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService) {
+  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService, private modalService: NgbModal) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -45,9 +45,19 @@ export class SurveyPageComponent implements OnInit {
   }
 
   goToNextPage() {
-    this.currentPageNumber++;
-    this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
-    this.updateLinks(this.currentPageNumber);
+    let isAllAnswersFullfield: boolean = true;
+    this.surveyContent.pages[this.currentPageNumber - 1].questions.forEach((item, index) => {
+      if (item.type == "rating" && item.answer == "") {
+        isAllAnswersFullfield = false;
+      }
+    });
+    if (isAllAnswersFullfield) {
+      this.currentPageNumber++;
+      this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
+      this.updateLinks(this.currentPageNumber);
+    } else {
+      this.modalService.open("OK!", { centered: true });
+    }
   }
 
   updateLinks(currentPage: number) {

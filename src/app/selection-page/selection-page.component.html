@@ -11,7 +11,8 @@
           <div class="form-check col">
             <input type="radio" [(ngModel)]="selectedSurveyType" class="form-check-input" name="surveyType"
               id="surveyType1" value="DirectComment" [checked]="selectedSurveyType === 'DirectComment'"
-              (change)="onSurveyTypeChanged('DirectComment')" required #selectionReference="ngModel" [attr.disabled]="isDirectCommentDisabled">
+              (change)="onSurveyTypeChanged('DirectComment')" required #selectionReference="ngModel"
+              [attr.disabled]="isDirectCommentDisabled">
             <label class="form-check-label" for="surveyType1">
               ارسال نظر مستقیم به واحد مورد نظر
             </label>
@@ -19,7 +20,8 @@
           <div class="form-check col">
             <input type="radio" [(ngModel)]="selectedSurveyType" class="form-check-input" name="surveyType"
               id="surveyType2" value="ProfessorsResidence" [checked]="selectedSurveyType === 'ProfessorsResidence'"
-              (change)="onSurveyTypeChanged('ProfessorsResidence')" required [attr.disabled]="isProfessorsResidenceDisabled">
+              (change)="onSurveyTypeChanged('ProfessorsResidence')" required
+              [attr.disabled]="isProfessorsResidenceDisabled">
             <label class="form-check-label" for="surveyType2">
               نظرسنجی استادسراهای پردیس
             </label>
@@ -29,7 +31,8 @@
           <div class="form-check col">
             <input type="radio" [(ngModel)]="selectedSurveyType" class="form-check-input" name="surveyType"
               id="surveyType3" value="StudentsResidence" [checked]="selectedSurveyType === 'StudentsResidence'"
-              (change)="onSurveyTypeChanged('StudentsResidence')" required [attr.disabled]="isStudentsResidenceDisabled">
+              (change)="onSurveyTypeChanged('StudentsResidence')" required
+              [attr.disabled]="isStudentsResidenceDisabled">
             <label class="form-check-label" for="surveyType3">
               نظرسنجی خوابگاه های دانشجویی
             </label>
@@ -37,7 +40,8 @@
           <div class="form-check col">
             <input type="radio" [(ngModel)]="selectedSurveyType" class="form-check-input" name="surveyType"
               id="surveyType4" value="CateringFacilities" [checked]="selectedSurveyType === 'CateringFacilities'"
-              (change)="onSurveyTypeChanged('CateringFacilities')" required [attr.disabled]="isCateringFacilitiesDisabled">
+              (change)="onSurveyTypeChanged('CateringFacilities')" required
+              [attr.disabled]="isCateringFacilitiesDisabled">
             <label class="form-check-label" for="surveyType4">
               نظرسنجی رستوران و کافی شاپ پردیس
             </label>
@@ -47,7 +51,8 @@
           <div class="form-check col-sm-6">
             <input type="radio" [(ngModel)]="selectedSurveyType" class="form-check-input" name="surveyType"
               id="surveyType5" value="EducationalFacilities" [checked]="selectedSurveyType === 'EducationalFacilities'"
-              (change)="onSurveyTypeChanged('EducationalFacilities')" required [attr.disabled]="isEducationalFacilitiesDisabled">
+              (change)="onSurveyTypeChanged('EducationalFacilities')" required
+              [attr.disabled]="isEducationalFacilitiesDisabled">
             <label class="form-check-label" for="surveyType5">
               نظرسنجی فضای آموزشی پردیس
             </label>
@@ -60,10 +65,10 @@
       </div>
     </div>
     <div class="row justify-content-between align-items-center h-25">
-      <input type="button" routerLink="/Relation" class="survey_prv_btn" value="قبلی">
       <input type="button" class="survey_next_btn" value="بعدی" (click)="onSubmit(selectionForm.form.valid)"
         [disabled]="!selectionForm.form.valid">
       <!--<input type="button" routerLink="{{nextPageLink}}" class="survey_next_btn" value="بعدی">-->
+      <input type="button" routerLink="/Relation" class="survey_prv_btn" value="قبلی">
     </div>
   </div>
 </form>

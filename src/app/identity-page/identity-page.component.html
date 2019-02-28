@@ -14,7 +14,7 @@
           <label for="nationalCode" class="col-sm-2 col-form-label">کد ملی:</label>
           <div class="col-sm-5">
             <input type="text" [(ngModel)]="nationalCode" class="form-control" id="nationalCode" name="nationalCode"
-              placeholder="لطفاً کد ملی خود را وارد نمایید" required  maxlength="10" pattern="^\d{10}$"
+              placeholder="لطفاً کد ملی خود را وارد نمایید" required maxlength="10" pattern="^\d{10}$"
               #nationalCodeReference="ngModel">
             <div [hidden]="nationalCodeReference.valid || nationalCodeReference.untouched"
               style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;">
@@ -25,8 +25,9 @@
         <div class="row form-group pr-5 mb-4">
           <label for="age" class="col-sm-2 col-form-label">سن:</label>
           <div class="col-sm-5">
-            <input type="number" [(ngModel)]="age" class="form-control" id="age" name="age"
-              placeholder="لطفاً سن خود را وارد نمایید" required [min]="15" [max]="80" #ageReference="ngModel">
+            <input type="text" [(ngModel)]="age" class="form-control" id="age" name="age"
+              placeholder="لطفاً سن خود را وارد نمایید" required min="15" [min]="15" max="85" [max]="85" maxlength="2"
+              pattern="^\d{2}$" #ageReference="ngModel">
             <div [hidden]="ageReference.valid || ageReference.untouched"
               style="width: 100%;margin-top: .25rem;font-size: 80%;color: #dc3545;">
               سن معتبر نیست!
@@ -63,9 +64,9 @@
       </div>
     </div>
     <div class="row justify-content-between align-items-center h-25">
-      <input type="button" routerLink="/Initial" class="survey_prv_btn" value="قبلی">
       <input type="button" class="survey_next_btn" value="بعدی" (click)="onSubmit(identityForm.form.valid)"
         [disabled]="!identityForm.form.valid">
+      <input type="button" routerLink="/Initial" class="survey_prv_btn" value="قبلی">
     </div>
   </div>
 </form>

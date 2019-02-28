@@ -36,10 +36,10 @@
       </div>
     </div>
     <div class="row justify-content-between align-items-center h-25">
-      <input type="button" routerLink="/Selection" class="survey_prv_btn" value="قبلی">
       <!--<input type="button" routerLink="/Last" class="survey_next_btn" value="تکمیل">-->
       <input type="button" class="survey_next_btn" value="تکمیل" (click)="onSubmit(directCommentForm.form.valid)"
         [disabled]="!directCommentForm.form.valid">
+      <input type="button" routerLink="/Selection" class="survey_prv_btn" value="قبلی">
     </div>
   </div>
 </form>
