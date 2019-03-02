@@ -40,9 +40,9 @@
                 {{q['title']}}
               </div>
               <div class="row justify-content-around">
-                <div *ngFor="let opt of q['options']" style="font-size:0.85em">
-                  <label for="opt_answer_{{opt}}">
-                    <input id="opt_answer_{{opt}}" [value]='opt' type="radio" name="opt" [(ngModel)]="radioSelected">
+                <div *ngFor="let opt of q['options']; let i = index;" style="font-size:0.85em">
+                  <label for="opt_answer_{{i+1}}">
+                    <input id="opt_answer_{{i+1}}" value={{i+1}} [value]='i+1' type="radio" name="opt_answer" [(ngModel)]="q['answer']" [checked]="6 == i+1">
                     {{opt}}
                   </label>
                 </div>

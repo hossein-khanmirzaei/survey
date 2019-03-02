@@ -15,6 +15,7 @@ export class SurveyAnswer {
         public relationCode: number,
         public selectedSurveyType: string,
         public directCommentChoice: number,
+        public directCommentAnswer: string,
         public ratingAnswers: RatingAnswer[],
     ) { }
 }

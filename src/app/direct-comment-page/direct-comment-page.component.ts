@@ -13,6 +13,7 @@ import { SurveyService } from '../survey.service';
 export class DirectCommentPageComponent implements OnInit {
 
   directCommentChoice: number;
+  directCommentAnswer: string;
 
   constructor(private router: Router, private surveyService: SurveyService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
@@ -26,11 +27,13 @@ export class DirectCommentPageComponent implements OnInit {
 
   getInitialData() {
     this.directCommentChoice = this.surveyService.surveyAnswer.directCommentChoice;
+    this.directCommentAnswer = this.surveyService.surveyAnswer.directCommentAnswer;
   }
 
   onSubmit(validity: boolean) {
     if (validity) {
       this.surveyService.surveyAnswer.directCommentChoice = this.directCommentChoice;
+      this.surveyService.surveyAnswer.directCommentAnswer = this.directCommentAnswer;      
       this.router.navigateByUrl('/Last');
     }
     else {

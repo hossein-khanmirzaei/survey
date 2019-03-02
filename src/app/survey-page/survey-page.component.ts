@@ -45,19 +45,32 @@ export class SurveyPageComponent implements OnInit {
   }
 
   goToNextPage() {
-    let isAllAnswersFullfield: boolean = true;
-    this.surveyContent.pages[this.currentPageNumber - 1].questions.forEach((item, index) => {
-      if (item.type == "rating" && item.answer == "") {
-        isAllAnswersFullfield = false;
+    let isAllAnswersField: boolean = true;
+    this.currentPage.questions.forEach(item => {
+      if ((item.type == "rating" || item.type == "options") && item.answer == "") {
+        isAllAnswersField = false;
       }
     });
-    if (isAllAnswersFullfield) {
+    if (isAllAnswersField) {
+      this.updateAnswers();
       this.currentPageNumber++;
       this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
       this.updateLinks(this.currentPageNumber);
-    } else {
+    }
+    else {
       this.modalService.open("OK!", { centered: true });
     }
+  }
+
+  updateAnswers() {
+    this.currentPage.questions.forEach(item => {
+      const index = this.surveyService.surveyAnswer.ratingAnswers.findIndex((q) => q.questionCode === item.questionCode);
+      if (index === -1) {
+        this.surveyService.surveyAnswer.ratingAnswers.push({ questionCode: item.questionCode, answerCode: item.answer })
+      } else {
+        this.surveyService.surveyAnswer.ratingAnswers[index].answerCode = item.answer;
+      }
+    });
   }
 
   updateLinks(currentPage: number) {

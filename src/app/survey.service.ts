@@ -20,7 +20,7 @@ export class SurveyService {
 */
 
   constructor() {
-    this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, []);
+    this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, []);
   }
 
   getCurrentSurveyContent(): Survey {
