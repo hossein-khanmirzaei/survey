@@ -12,7 +12,7 @@
             <input type="radio" [(ngModel)]="selectedSurveyType" class="form-check-input" name="surveyType"
               id="surveyType1" value="DirectComment" [checked]="selectedSurveyType === 'DirectComment'"
               (change)="onSurveyTypeChanged('DirectComment')" required #selectionReference="ngModel"
-              [attr.disabled]="isDirectCommentDisabled">
+              [attr.disabled]="isDirectCommentDisable">
             <label class="form-check-label" for="surveyType1">
               ارسال نظر مستقیم به واحد مورد نظر
             </label>
