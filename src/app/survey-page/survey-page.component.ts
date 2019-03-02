@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Page } from '../page';
@@ -15,6 +15,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SurveyPageComponent implements OnInit {
 
+  @ViewChild('scrollContainer') el: ElementRef;
+
   surveyType: string;
   surveyContent: Survey;
   currentPage: Page;
@@ -23,7 +25,7 @@ export class SurveyPageComponent implements OnInit {
   nextLinkValue: string;
   currentPageNumber: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private surveyService: SurveyService, private modalService: NgbModal) {
+  constructor(private route: ActivatedRoute, private router: Router, private rd: Renderer2, private surveyService: SurveyService, private modalService: NgbModal) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -42,6 +44,7 @@ export class SurveyPageComponent implements OnInit {
     this.currentPageNumber--;
     this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
     this.updateLinks(this.currentPageNumber);
+    this.rd.setProperty(this.el.nativeElement, "scrollTop", "0");
   }
 
   goToNextPage() {
@@ -56,6 +59,7 @@ export class SurveyPageComponent implements OnInit {
       this.currentPageNumber++;
       this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
       this.updateLinks(this.currentPageNumber);
+      this.rd.setProperty(this.el.nativeElement, "scrollTop", "0");
     }
     else {
       this.modalService.open("OK!", { centered: true });

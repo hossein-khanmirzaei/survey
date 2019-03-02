@@ -2,27 +2,26 @@
 	font-family: IRANSans;
 	font-style: normal;
 	font-weight: normal;
-	src: url('assets/font/IranSansZ.eot');
-	src: url('assets/font/IranSansZ.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
-		 url('assets/font/IranSansZ.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
-		 url('assets/font/IranSansZ.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-		 url('assets/font/IranSansZ.ttf') format('truetype');
+	src: url('./assets/font/IranSansZ.eot');
+	src: url('./assets/font/IranSansZ.eot?#iefix') format('embedded-opentype'),  /* IE6-8 */
+		 url('./assets/font/IranSansZ.woff2') format('woff2'),  /* FF39+,Chrome36+, Opera24+*/
+		 url('./assets/font/IranSansZ.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+		 url('./assets/font/IranSansZ.ttf') format('truetype');
 }
 
 body {
-	background-image: url("assets/img/main-bg.jpg");
+	background-image: url("./assets/img/main-bg.jpg");
 	background-size: cover; 
 	font-family: IRANSans;
 	font-size: 1.4rem;
 	color: rgb(109, 112, 114);
-
 }
 .survey-header {
 	padding-bottom: 50px;
 	width: 1730px; /*1192px;*/
 	height: 133px;
 	margin: auto auto;
-	background-image: url("assets/img/head.png");
+	background-image: url("./assets/img/head.png");
 	background-repeat: repeat-x;
 	background-position: bottom;
 }
@@ -32,24 +31,24 @@ body {
 }
 .survey-container {
     background: #fafafa;
-    width: 1360px; /*821px;*/
+    width: 1321px; /*821px;*/
     float: left;
     padding: 0 10px 0 40px;
     height: 755px; /*555px*/
 }
 .survey-gallery {
 	background: #fafafa;
-	width: 370px;
+	width: 409px;/*370px;*/
 	float: right;
 	height: 755px; /*555px*/
 	text-align: center;
-	padding: 35px 0 0 0;
+	/*padding: 35px 0 0 0;*/
 }
 .survey-footer {
 	clear: both;
 	width: 1730px; /*1193px;*/
 	height: 66px;
-	background-image: url("assets/img/footer.png");
+	background-image: url("./assets/img/footer.png");
 	background-repeat: repeat-x;
 	background-position: top;
 	padding-bottom: 10px;
@@ -71,7 +70,7 @@ body {
 	border: none;
 	height: 53px;
 	width: 139px;
-	background-image: url('assets/img/prv.png');
+	background-image: url('./assets/img/prv.png');
 	background-repeat: no-repeat;
 	text-align: center;
 }
@@ -81,12 +80,12 @@ body {
 	border: none;
 	height: 53px;
 	width: 139px;
-	background-image: url('assets/img/nxt.png');
+	background-image: url('./assets/img/nxt.png');
 	background-repeat: no-repeat;
 	text-align: center;
 }
 input[type="button"]:disabled{
-    background-image: url('assets/img/nxt-disabled.png');
+    background-image: url('./assets/img/nxt-disabled.png');
     color: #666666;
 }
 

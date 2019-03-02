@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<div class="survey-header"></div>
+<div class="survey-main">
+    <div class="survey-gallery container-fluid">
+        <div class="row justify-content-center h-100 w-100">
+            <img #imageElement class="col align-self-center" border="0" width="312" height="462">
+        </div>
+    </div>
+    <div class="survey-container text-right">
+        <!-- style="overflow-y: scroll;" -->
+        <div class="container-fluid h-100">
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+    <div class="survey-footer">
+        <div class="survey-copyright">
+            کلیه حقوق متعلق به دانشگاه تهران می باشد
+        </div>
+    </div>

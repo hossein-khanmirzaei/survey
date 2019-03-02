@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { SurveyService } from '../survey.service';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class SelectionPageComponent implements OnInit {
   isCateringFacilitiesDisabled: boolean = null;
   isEducationalFacilitiesDisabled: boolean = null;
 
-  constructor(private router: Router, private surveyService: SurveyService) {
+  constructor(private router: Router, private rd: Renderer2, private surveyService: SurveyService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -65,22 +65,27 @@ export class SelectionPageComponent implements OnInit {
     switch (val) {
       case 'DirectComment': {
         this.nextPageLink = "/DirectComment";
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner1.png");
         break;
       }
       case 'ProfessorsResidence': {
         this.nextPageLink = "/Survey/Page/1";
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner2.png");
         break;
       }
       case 'StudentsResidence': {
         this.nextPageLink = "/Survey/Page/1";
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner3.png");
         break;
       }
       case 'CateringFacilities': {
         this.nextPageLink = "/Survey/Page/1";
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner1.png");
         break;
       }
       case 'EducationalFacilities': {
         this.nextPageLink = "/Survey/Page/1";
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner3.png");
         break;
       }
       default: {
