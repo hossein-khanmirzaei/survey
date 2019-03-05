@@ -4,6 +4,7 @@ import { SurveyService } from '../survey.service';
 import { Page } from '../page';
 import { Survey } from '../survey';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-survey-page',
@@ -16,13 +17,14 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class SurveyPageComponent implements OnInit {
 
   @ViewChild('scrollContainer') el: ElementRef;
+  @ViewChild('modalElement') modalEl:ElementRef;
 
   surveyType: string;
   surveyContent: Survey;
   currentPage: Page;
   prevPageLink: string;
   nextPageLink: string;
-  nextLinkValue: string;
+  /*nextLinkValue: string;*/
   currentPageNumber: number;
 
   constructor(private route: ActivatedRoute, private router: Router, private rd: Renderer2, private surveyService: SurveyService, private modalService: NgbModal) {
@@ -38,6 +40,7 @@ export class SurveyPageComponent implements OnInit {
     this.currentPageNumber = Number(this.route.snapshot.paramMap.get('id'));
     this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
     this.updateLinks(this.currentPageNumber);
+    this.modalEl = this.surveyService.modalElement;
   }
 
   goToPrevPage() {
@@ -45,6 +48,10 @@ export class SurveyPageComponent implements OnInit {
     this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
     this.updateLinks(this.currentPageNumber);
     this.rd.setProperty(this.el.nativeElement, "scrollTop", "0");
+    if (this.currentPageNumber == 0)
+      this.router.navigateByUrl('/Selection');
+    else
+      this.router.navigateByUrl(`/Survey/Page/${this.currentPageNumber}`);
   }
 
   goToNextPage() {
@@ -60,9 +67,14 @@ export class SurveyPageComponent implements OnInit {
       this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
       this.updateLinks(this.currentPageNumber);
       this.rd.setProperty(this.el.nativeElement, "scrollTop", "0");
+      if (this.currentPageNumber > this.surveyContent.pageCount)
+        this.router.navigateByUrl('/Overview');
+      else
+        this.router.navigateByUrl(`/Survey/Page/${this.currentPageNumber}`);
     }
     else {
-      this.modalService.open("OK!", { centered: true });
+      //$("#exampleModal").modal();
+      this.modalService.open("لطفاً به تمامی سوالات پاسخ دهید", { centered: true });
     }
   }
 
@@ -81,17 +93,17 @@ export class SurveyPageComponent implements OnInit {
     if (currentPage <= 1) {
       this.prevPageLink = "/Selection";
       this.nextPageLink = `/Survey/Page/${currentPage + 1}`;
-      this.nextLinkValue = "بعدی";
+      /*this.nextLinkValue = "بعدی";*/
     }
     else if (currentPage >= this.surveyContent.pageCount) {
       this.prevPageLink = `/Survey/Page/${currentPage - 1}`;
-      this.nextPageLink = "/Last";
-      this.nextLinkValue = "تکمیل";
+      this.nextPageLink = "/Overview";
+      /*this.nextLinkValue = "تکمیل";*/
     }
     else {
       this.prevPageLink = `/Survey/Page/${currentPage - 1}`;
       this.nextPageLink = `/Survey/Page/${currentPage + 1}`;
-      this.nextLinkValue = "بعدی";
+      /*this.nextLinkValue = "بعدی";*/
     }
   }
 }

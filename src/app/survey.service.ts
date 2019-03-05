@@ -9,6 +9,7 @@ import { SurveyAnswer } from './survey-answer';
 export class SurveyService {
 
   @ViewChild('imageElement') imageElement: ElementRef<any>;
+  @ViewChild('modalElement') modalElement: ElementRef<any>;
 
   surveyAnswer: SurveyAnswer;
 
@@ -22,7 +23,7 @@ export class SurveyService {
   */
 
   constructor() {
-    this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, []);
+    this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
   }
 
   getCurrentSurveyContent(): Survey {
@@ -35,5 +36,9 @@ export class SurveyService {
 
   getImageElemet(): ElementRef<any> {
     return this.imageElement;
+  }
+  
+  getModalElemet(): ElementRef<any> {
+    return this.modalElement;
   }
 }

@@ -1,0 +1,35 @@
+<form #overviewForm="ngForm" class="h-100 w-100">
+  <div class="container-fluid h-100 w-100">
+    <diV class="row justify-content-center align-items-center h-25">
+      <p class="col text-center font-weight-bold">
+        نظر کلی
+      </p>
+    </diV>
+    <div class="row justify-content-center align-items-center h-50">
+      <div class=container-fluid>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-md-3">
+            <ngx-knob [(value)]="overalValue" [(options)]="knOptions" class="align-self-center"></ngx-knob>
+          </div>
+        </div>
+        <div class="row justify-content-center align-items-center mt-5">
+          <button class='btn btn-lg' (click)="increaseRate()">
+            <i class="fas fa-plus-circle" style="font-size:3rem; color:rgb(0, 162, 255)"></i>
+          </button>
+          <div class="col-md-8" style="direction:ltr">
+            <input type="range" class="form-control-range" [(ngModel)]="overalValue" min="0" max="100" step="5"
+              id="overalRange" name="overalRange" (input)="rangeChange()">
+          </div>
+          <button class='btn btn-lg' (click)="decreaseRate()">
+            <i class="fas fa-minus-circle" style="font-size:3rem; color:rgb(0, 162, 255)"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-between align-items-center h-25">
+      <input type="button" class="survey_next_btn" value="تکمیل" (click)="onSubmit(overviewForm.form.valid)"
+        [disabled]="!overviewForm.form.dirty && !rateChanged">
+      <input type="button" class="survey_prv_btn" value="قبلی" (click)="goBack()">
+    </div>
+  </div>
+</form>

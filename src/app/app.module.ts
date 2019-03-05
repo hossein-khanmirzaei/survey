@@ -15,6 +15,9 @@ import { LastPageComponent } from './last-page/last-page.component';
 import { QuestionContainerComponent } from './question-container/question-container.component';
 import { RatingComponent } from './rating/rating.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { KnobModule } from "@xmlking/ngx-knob";
+
 
 @NgModule({
   declarations: [
@@ -27,14 +30,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DirectCommentPageComponent,
     LastPageComponent,
     QuestionContainerComponent,
-    RatingComponent
+    RatingComponent,
+    OverviewPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CustomFormsModule,
-    NgbModule
+    NgbModule,
+    KnobModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

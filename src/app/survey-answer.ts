@@ -17,5 +17,6 @@ export class SurveyAnswer {
         public directCommentChoice: number,
         public directCommentAnswer: string,
         public ratingAnswers: RatingAnswer[],
+        public overalValue: number
     ) { }
 }

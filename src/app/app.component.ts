@@ -9,12 +9,14 @@ import { SurveyService } from './survey.service';
 export class AppComponent {
 
   @ViewChild('imageElement') private imageElement: ElementRef<any>;
+  @ViewChild('modalElement') private modalElement: ElementRef<any>;
   title = 'survey';
 
   constructor(private rd: Renderer2, private surveyService: SurveyService) { }
 
   ngOnInit() {
     this.surveyService.imageElement = this.imageElement;
+    this.surveyService.modalElement = this.modalElement;
     this.setImagePath(this.imageElement);
   }
 
