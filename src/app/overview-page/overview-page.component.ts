@@ -77,17 +77,17 @@ export class OverviewPageComponent implements OnInit {
     }
     this.rateChanged = true;
   }
-
+/*
   onSubmit(validity: boolean) {
     if (validity) {
       this.surveyService.surveyAnswer.overalValue = this.overalValue;
       this.router.navigateByUrl('/Last');
     }
     else {
-      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+      $('#myModal').modal();
     }
   }
-
+*/
   goBack() {
     this.location.back();
   }

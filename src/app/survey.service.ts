@@ -2,6 +2,7 @@ import { Injectable, ViewChild, ElementRef } from '@angular/core';
 import { Survey } from "./survey";
 import { SurveyContent } from './survey-content';
 import { SurveyAnswer } from './survey-answer';
+import { UserIdleService } from 'angular-user-idle';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,6 @@ import { SurveyAnswer } from './survey-answer';
 export class SurveyService {
 
   @ViewChild('imageElement') imageElement: ElementRef<any>;
-  @ViewChild('modalElement') modalElement: ElementRef<any>;
 
   surveyAnswer: SurveyAnswer;
 
@@ -22,8 +22,11 @@ export class SurveyService {
     selectedSurveyType: string;
   */
 
-  constructor() {
+  constructor(private userIdle: UserIdleService) {
     this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
+//    this.userIdle.startWatching();
+    this.userIdle.onTimerStart().subscribe(count => console.log(count));
+    this.userIdle.onTimeout().subscribe(() => console.log('Time is up!'));
   }
 
   getCurrentSurveyContent(): Survey {
@@ -37,8 +40,17 @@ export class SurveyService {
   getImageElemet(): ElementRef<any> {
     return this.imageElement;
   }
-  
-  getModalElemet(): ElementRef<any> {
-    return this.modalElement;
+
+  stopWatchingTimer() {
+    this.userIdle.stopWatching();
   }
+
+  startWatchingTimer() {
+    this.userIdle.startWatching();
+  }
+
+  restartTimer() {
+    this.userIdle.resetTimer();
+  }
+
 }

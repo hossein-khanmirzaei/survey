@@ -22,6 +22,7 @@ export class IdentityPageComponent implements OnInit {
 
   ngOnInit() {
     this.getInitialData();
+    this.surveyService.startWatchingTimer();
   }
 
   getInitialData() {
@@ -38,22 +39,23 @@ export class IdentityPageComponent implements OnInit {
       this.router.navigateByUrl('/Relation');
     }
     else {
-      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+      $('#myModal').modal();
     }
   }
-
-  isValidIranianNationalCode(input) {
-    if (!/^\d{10}$/.test(input))
-      return false;
-
-    var check = parseInt(input[9]);
-    var sum = 0;
-    var i;
-    for (i = 0; i < 9; ++i) {
-      sum += parseInt(input[i]) * (10 - i);
+  /*
+    isValidIranianNationalCode(input) {
+      if (!/^\d{10}$/.test(input))
+        return false;
+  
+      var check = parseInt(input[9]);
+      var sum = 0;
+      var i;
+      for (i = 0; i < 9; ++i) {
+        sum += parseInt(input[i]) * (10 - i);
+      }
+      sum %= 11;
+  
+      return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
     }
-    sum %= 11;
-
-    return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
-  }
+  */
 }

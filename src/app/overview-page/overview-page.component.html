@@ -27,8 +27,7 @@
       </div>
     </div>
     <div class="row justify-content-between align-items-center h-25">
-      <input type="button" class="survey_next_btn" value="تکمیل" (click)="onSubmit(overviewForm.form.valid)"
-        [disabled]="!overviewForm.form.dirty && !rateChanged">
+      <input type="button" routerLink="/Last" class="survey_next_btn" value="تکمیل">
       <input type="button" class="survey_prv_btn" value="قبلی" (click)="goBack()">
     </div>
   </div>

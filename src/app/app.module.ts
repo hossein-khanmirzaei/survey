@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
+import { UserIdleModule } from 'angular-user-idle';
+import { KnobModule } from "@xmlking/ngx-knob";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,10 +16,7 @@ import { DirectCommentPageComponent } from './direct-comment-page/direct-comment
 import { LastPageComponent } from './last-page/last-page.component';
 import { QuestionContainerComponent } from './question-container/question-container.component';
 import { RatingComponent } from './rating/rating.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
-import { KnobModule } from "@xmlking/ngx-knob";
-
 
 @NgModule({
   declarations: [
@@ -38,7 +37,7 @@ import { KnobModule } from "@xmlking/ngx-knob";
     AppRoutingModule,
     FormsModule,
     CustomFormsModule,
-    NgbModule,
+    UserIdleModule.forRoot({ idle: 3, timeout: 3, ping: 0 }),
     KnobModule,
   ],
   providers: [],

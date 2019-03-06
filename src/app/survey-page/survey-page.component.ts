@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Page } from '../page';
 import { Survey } from '../survey';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-survey-page',
@@ -17,7 +15,6 @@ import { $ } from 'protractor';
 export class SurveyPageComponent implements OnInit {
 
   @ViewChild('scrollContainer') el: ElementRef;
-  @ViewChild('modalElement') modalEl:ElementRef;
 
   surveyType: string;
   surveyContent: Survey;
@@ -27,7 +24,7 @@ export class SurveyPageComponent implements OnInit {
   /*nextLinkValue: string;*/
   currentPageNumber: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private rd: Renderer2, private surveyService: SurveyService, private modalService: NgbModal) {
+  constructor(private route: ActivatedRoute, private router: Router, private rd: Renderer2, private surveyService: SurveyService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -40,7 +37,6 @@ export class SurveyPageComponent implements OnInit {
     this.currentPageNumber = Number(this.route.snapshot.paramMap.get('id'));
     this.currentPage = this.surveyContent.pages[this.currentPageNumber - 1];
     this.updateLinks(this.currentPageNumber);
-    this.modalEl = this.surveyService.modalElement;
   }
 
   goToPrevPage() {
@@ -73,8 +69,7 @@ export class SurveyPageComponent implements OnInit {
         this.router.navigateByUrl(`/Survey/Page/${this.currentPageNumber}`);
     }
     else {
-      //$("#exampleModal").modal();
-      this.modalService.open("لطفاً به تمامی سوالات پاسخ دهید", { centered: true });
+      $('#myModal').modal();
     }
   }
 

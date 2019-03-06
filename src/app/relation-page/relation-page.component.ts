@@ -34,7 +34,7 @@ export class RelationPageComponent implements OnInit {
       this.router.navigateByUrl('/Selection');
     }
     else {
-      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+      $('#myModal').modal();
     }
   }
 

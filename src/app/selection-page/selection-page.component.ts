@@ -56,7 +56,7 @@ export class SelectionPageComponent implements OnInit {
       this.router.navigateByUrl('/' + this.nextPageLink);
     }
     else {
-      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+      $('#myModal').modal();
     }
   }
 

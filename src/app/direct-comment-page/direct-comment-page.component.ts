@@ -37,7 +37,7 @@ export class DirectCommentPageComponent implements OnInit {
       this.router.navigateByUrl('/Last');
     }
     else {
-      alert("لطفاً اطلاعات فرم را تکمیل نمائید.")
+      $('#myModal').modal();
     }
   }
 
