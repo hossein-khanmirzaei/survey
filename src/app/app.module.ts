@@ -37,7 +37,7 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
     AppRoutingModule,
     FormsModule,
     CustomFormsModule,
-    UserIdleModule.forRoot({ idle: 3, timeout: 3, ping: 0 }),
+    UserIdleModule.forRoot({ idle: 60, timeout: 5, ping: 0 }),
     KnobModule,
   ],
   providers: [],

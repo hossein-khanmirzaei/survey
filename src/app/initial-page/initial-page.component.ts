@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SurveyService } from '../survey.service';
 
 @Component({
   selector: 'app-initial-page',
@@ -10,10 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InitialPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private surveyService: SurveyService) { }
 
   ngOnInit() {
-    
+    this.surveyService.stopWatchingTimer();
   }
 
 }

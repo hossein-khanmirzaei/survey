@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, ViewChild, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { SurveyService } from './survey.service';
 import { UserIdleService } from 'angular-user-idle';
 
@@ -11,6 +11,11 @@ export class AppComponent {
 
   @ViewChild('imageElement') private imageElement: ElementRef<any>;
   title = 'survey';
+  @HostListener('document:click')
+  onMouseMove(e) {
+    this.surveyService.restartTimer();
+  }
+  modalMessage: string = 'لطفاً به تمامی سوالات پاسخ دهید.';
 
   constructor(private rd: Renderer2, private surveyService: SurveyService) { }
 

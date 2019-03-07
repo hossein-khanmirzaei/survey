@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
+import * as $ from 'JQuery';
 
 @Component({
   selector: 'app-direct-comment-page',
@@ -37,7 +38,7 @@ export class DirectCommentPageComponent implements OnInit {
       this.router.navigateByUrl('/Last');
     }
     else {
-      $('#myModal').modal();
+      $("#myModal").modal();
     }
   }
 

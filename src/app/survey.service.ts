@@ -3,6 +3,7 @@ import { Survey } from "./survey";
 import { SurveyContent } from './survey-content';
 import { SurveyAnswer } from './survey-answer';
 import { UserIdleService } from 'angular-user-idle';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,21 +13,12 @@ export class SurveyService {
   @ViewChild('imageElement') imageElement: ElementRef<any>;
 
   surveyAnswer: SurveyAnswer;
+  modalMessage: string = 'لطفاً به تمامی سوالات پاسخ دهید.';
 
-  /*  
-    nationalCode: string = "";
-    age: number = null;
-    gender: Gender;
-    relationCode: number = null;
-    directCommentChoice: number = null;
-    selectedSurveyType: string;
-  */
-
-  constructor(private userIdle: UserIdleService) {
+  constructor(private router: Router, private userIdle: UserIdleService) {
     this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
-//    this.userIdle.startWatching();
-    this.userIdle.onTimerStart().subscribe(count => console.log(count));
-    this.userIdle.onTimeout().subscribe(() => console.log('Time is up!'));
+    this.userIdle.onTimerStart().subscribe();
+    this.userIdle.onTimeout().subscribe(() => { this.restartTimer(); this.router.navigateByUrl('/Initial') });
   }
 
   getCurrentSurveyContent(): Survey {
