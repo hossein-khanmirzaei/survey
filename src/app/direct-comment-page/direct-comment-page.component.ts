@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
-import * as $ from 'JQuery';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-initial-page',
@@ -11,10 +12,14 @@ import { SurveyService } from '../survey.service';
 })
 export class InitialPageComponent implements OnInit {
 
-  constructor(private surveyService: SurveyService) { }
+  constructor(private surveyService: SurveyService, private auth: AuthService) { }
 
   ngOnInit() {
     this.surveyService.stopWatchingTimer();
+  }
+
+  testAPI() {
+    this.auth.login({ username: 'admin', password: 'admin' });
   }
 
 }
