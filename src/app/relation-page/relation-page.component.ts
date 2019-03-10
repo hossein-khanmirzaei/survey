@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-relation-page',
@@ -14,7 +15,7 @@ export class RelationPageComponent implements OnInit {
 
   relationCode: number;
 
-  constructor(private router: Router, private surveyService: SurveyService) {
+  constructor(private router: Router, private surveyService: SurveyService, private toastrService: ToastrService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -34,7 +35,7 @@ export class RelationPageComponent implements OnInit {
       this.router.navigateByUrl('/Selection');
     }
     else {
-      $('#myModal').modal();
+      this.toastrService.error('لطفاً به تمامی سوالات پاسخ دهید.', 'توجه!', {});
     }
   }
 

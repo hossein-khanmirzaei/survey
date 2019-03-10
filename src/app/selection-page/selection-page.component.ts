@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { SurveyService } from '../survey.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-selection-page',
@@ -21,7 +22,7 @@ export class SelectionPageComponent implements OnInit {
   isCateringFacilitiesDisabled: boolean = null;
   isEducationalFacilitiesDisabled: boolean = null;
 
-  constructor(private router: Router, private rd: Renderer2, private surveyService: SurveyService) {
+  constructor(private router: Router, private rd: Renderer2, private surveyService: SurveyService, private toastrService: ToastrService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -56,7 +57,7 @@ export class SelectionPageComponent implements OnInit {
       this.router.navigateByUrl('/' + this.nextPageLink);
     }
     else {
-      $('#myModal').modal();
+      this.toastrService.error('لطفاً به تمامی سوالات پاسخ دهید.', 'توجه!', {});
     }
   }
 

@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
 import { UserIdleModule } from 'angular-user-idle';
 import { KnobModule } from "@xmlking/ngx-knob";
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,15 +32,22 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
     LastPageComponent,
     QuestionContainerComponent,
     RatingComponent,
-    OverviewPageComponent
+    OverviewPageComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     CustomFormsModule,
-    UserIdleModule.forRoot({ idle: 60, timeout: 5, ping: 0 }),
+    UserIdleModule.forRoot({ idle: 60, timeout: 10, ping: 0 }),
     KnobModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+      resetTimeoutOnDuplicate: true
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Page } from '../page';
 import { Survey } from '../survey';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-survey-page',
@@ -24,7 +25,7 @@ export class SurveyPageComponent implements OnInit {
   /*nextLinkValue: string;*/
   currentPageNumber: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private rd: Renderer2, private surveyService: SurveyService) {
+  constructor(private route: ActivatedRoute, private router: Router, private rd: Renderer2, private surveyService: SurveyService, private toastrService: ToastrService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -69,7 +70,9 @@ export class SurveyPageComponent implements OnInit {
         this.router.navigateByUrl(`/Survey/Page/${this.currentPageNumber}`);
     }
     else {
-      $('#myModal').modal();
+      this.toastrService.error('لطفاً به تمامی سوالات پاسخ دهید.', 'توجه!', {
+        timeOut: 3000
+      });
     }
   }
 

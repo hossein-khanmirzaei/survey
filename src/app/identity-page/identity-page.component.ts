@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Gender } from '../gender.enum';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-identity-page',
@@ -17,7 +18,7 @@ export class IdentityPageComponent implements OnInit {
   age: number;
   gender: Gender;
 
-  constructor(private router: Router, private surveyService: SurveyService) {
+  constructor(private router: Router, private surveyService: SurveyService, private toastrService: ToastrService) {
   }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class IdentityPageComponent implements OnInit {
       this.router.navigateByUrl('/Relation');
     }
     else {
-      $('#myModal').modal();
+      this.toastrService.error('لطفاً به تمامی سوالات پاسخ دهید.', 'توجه!', {});
     }
   }
   /*

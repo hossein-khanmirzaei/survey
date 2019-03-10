@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": ["JQuery"]
+    "types": []
   },
   "exclude": [
     "test.ts",

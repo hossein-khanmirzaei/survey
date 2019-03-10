@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { SurveyService } from './survey.service';
-import { UserIdleService } from 'angular-user-idle';
 
 @Component({
   selector: 'app-root',
