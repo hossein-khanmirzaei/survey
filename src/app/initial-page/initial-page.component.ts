@@ -19,7 +19,7 @@ export class InitialPageComponent implements OnInit {
   }
 
   testAPI() {
-    this.auth.login({ username: 'admin', password: 'admin' });
+    this.auth.login();
   }
 
 }
