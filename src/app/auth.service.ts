@@ -1,47 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { ISurveyData } from './survey-answer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost/survey-api/api/login.php';  // URL to web api
+  private baseUrl = 'http://localhost/survey-api/api/';
 
   constructor(private http: HttpClient) { }
 
-  private loginObject: object = { 'action': 'login', 'usename': 'admin', 'password': 'admin' };
   login() {
-    return this.http.post(this.baseUrl, this.loginObject, httpOptions).pipe(
-      //tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
-      catchError(this.handleError('addHero'))
-    );
-    //return this.httpClient.post('/api/login', { 'action': 'login', 'username': 'admin', 'password': 'admin' })
-    // this is just the HTTP call, 
-    // we still need to handle the reception of the token
-    //  .shareReplay();
-    // let headers: HttpHeaders = new HttpHeaders();
-    // headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    // //headers.append('cache-control', 'no-cache');
-    // //headers.append('Postman-Token', '96e17513-5081-4d48-b818-6c410e6e97d2');
-    // return this.httpClient.post<{ access_token: string }>('http://localhost/survey-api/api/index.php', { 'action': 'login', 'username': 'admin', 'password': 'admin' }, { headers })
-    //   .subscribe((r) => {
-    //     console.log(r);
-    //   });
-    // // .pipe(
-    // //   tap(
-    // //     res => {
-    // //       localStorage.setItem('access_token', res.access_token);
-    // //       console.log(res.access_token);
-    // //     }
-    // //   )
-    // // )
+    return this.http.post(this.baseUrl + '/index.php', { 'action': 'login', 'username': 'admin', 'password': 'admin' }).subscribe(
+      (response) => {
+        localStorage.setItem('access_token', response['JWT']);
+      },
+      (error: HttpErrorResponse) => {
+        console.log({ 'status': error.statusText, 'message': error.message });
+      }
+    )
+  }
+
+  add(answer: ISurveyData) {
+    const body = JSON.stringify(answer);
+    return this.http.post(this.baseUrl + 'index.php/add/direct_comment', body).subscribe(
+      (response) => {
+        console.log("OK!");
+        console.log(response);
+      },
+      (error: HttpErrorResponse) => {
+        console.log({ 'status': error.statusText, 'message': error.message });
+      }
+    )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

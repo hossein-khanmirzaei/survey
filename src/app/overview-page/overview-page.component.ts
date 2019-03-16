@@ -77,17 +77,21 @@ export class OverviewPageComponent implements OnInit {
     }
     this.rateChanged = true;
   }
-/*
-  onSubmit(validity: boolean) {
-    if (validity) {
-      this.surveyService.surveyAnswer.overalValue = this.overalValue;
-      this.router.navigateByUrl('/Last');
+  /*
+    onSubmit(validity: boolean) {
+      if (validity) {
+        this.surveyService.surveyAnswer.overalValue = this.overalValue;
+        this.router.navigateByUrl('/Last');
+      }
+      else {
+        $('#myModal').modal();
+      }
     }
-    else {
-      $('#myModal').modal();
-    }
+  */
+
+  sendSurveyData() {
+    this.surveyService.sendSurveyData();
   }
-*/
   goBack() {
     this.location.back();
   }

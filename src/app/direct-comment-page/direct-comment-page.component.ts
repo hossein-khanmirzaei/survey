@@ -35,6 +35,7 @@ export class DirectCommentPageComponent implements OnInit {
     if (validity) {
       this.surveyService.surveyAnswer.directCommentChoice = this.directCommentChoice;
       this.surveyService.surveyAnswer.directCommentAnswer = this.directCommentAnswer;
+      this.surveyService.sendSurveyData();
       this.router.navigateByUrl('/Last');
     }
     else {

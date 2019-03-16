@@ -20,6 +20,4 @@ export class LastPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  get diagnostic() { return JSON.stringify(this.surveyService); }
 }

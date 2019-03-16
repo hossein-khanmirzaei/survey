@@ -20,3 +20,14 @@ export class SurveyAnswer {
         public overalValue: number
     ) { }
 }
+
+export interface ISurveyData {
+    National_Code: string,
+    Gender: number,
+    Age: number,
+    Relation_Code: number,
+    Selection_Code: number,
+    Message_For: number,
+    Message: string,
+    [key: string]: any
+}

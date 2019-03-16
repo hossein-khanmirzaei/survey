@@ -26,14 +26,6 @@ export class RatingComponent implements OnInit {
 
   onRateSelect(e: Event) {
     let ans: string = (<HTMLButtonElement>e.currentTarget).value;
-    /*
-    const index = this.surveyService.surveyAnswer.ratingAnswers.findIndex((q) => q.questionCode === this.question.questionCode);
-    if (index === -1) {
-      this.surveyService.surveyAnswer.ratingAnswers.push({ questionCode: this.question.questionCode, answerCode: ans })
-    } else {
-      this.surveyService.surveyAnswer.ratingAnswers[index].answerCode = ans;
-    }
-    */
     this.question.answer = ans;
     this.color1 = this.color2 = this.color3 = this.color4 = this.color5 = "btn-outline-secondary";
     this.tuneAnswers();

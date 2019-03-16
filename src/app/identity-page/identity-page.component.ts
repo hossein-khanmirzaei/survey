@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { Gender } from '../gender.enum';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
+import { SurveyAnswer } from '../survey-answer';
 
 @Component({
   selector: 'app-identity-page',
@@ -18,7 +20,7 @@ export class IdentityPageComponent implements OnInit {
   age: number;
   gender: Gender;
 
-  constructor(private router: Router, private surveyService: SurveyService, private toastrService: ToastrService) {
+  constructor(private router: Router, private surveyService: SurveyService, private toastrService: ToastrService, private auth: AuthService) {
   }
 
   ngOnInit() {

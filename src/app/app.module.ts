@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation'
@@ -20,6 +20,8 @@ import { LastPageComponent } from './last-page/last-page.component';
 import { QuestionContainerComponent } from './question-container/question-container.component';
 import { RatingComponent } from './rating/rating.component';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
+import { JwtInterceptor } from './jwt-interceptor';
+import { ErrorInterceptor } from './error-interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,10 @@ import { OverviewPageComponent } from './overview-page/overview-page.component';
       resetTimeoutOnDuplicate: true
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
