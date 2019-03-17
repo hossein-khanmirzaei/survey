@@ -741,38 +741,38 @@ export const SurveyContent: Survey[] = [
                 pageTitle: "سیستم تاسیساتی – آسانسور",
                 questions: [
                     {
-                        questionCode: "S5P4Q1",
+                        questionCode: "S5P2Q1",
                         title: "تا کنون چند بار از آسانسور موجود پردیس استفاده نموده اید:",
                         type: "options",
                         answer: "4",
                         options: ["استفاده نکردم", "به ندرت", "ترجیح می دهم از پله استفاده کنم", "در صورت نیاز هر بار استفاده می کنم"]
                     },
                     {
-                        questionCode: "S5P4Q2",
+                        questionCode: "S5P2Q2",
                         title: "کیفیت کابین آسانسور",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P4Q3",
+                        questionCode: "S5P2Q3",
                         title: "تعداد خرابی آسانسور در زمان مراجعه شما",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P4Q4",
+                        questionCode: "S5P2Q4",
                         title: "زمان رسیدگی نیروی فنی پس از اعلام بروز مشکل در سیستم",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P4Q5",
+                        questionCode: "S5P2Q5",
                         title: "بطور کلی چه امتیازی به این بخش می دهید",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P4Q6",
+                        questionCode: "S5P2Q6",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این بخش، در کادر ذیل وارد نمایید:",
                         type: "comment",
                         answer: ""
@@ -785,43 +785,43 @@ export const SurveyContent: Survey[] = [
                 pageTitle: "سیستم تاسیساتی – برقی (روشنایی و  تجهیزات الکتریکی موجود)",
                 questions: [
                     {
-                        questionCode: "S5P2Q1",
+                        questionCode: "S5P3Q1",
                         title: "کیفیت نور کلاس ها",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P2Q2",
+                        questionCode: "S5P3Q2",
                         title: "کیفیت دیتا پرژکتور، پرده پرژکتور و کابل اتصال به رایانه",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P2Q3",
+                        questionCode: "S5P3Q3",
                         title: "کیفیت نور فضای عمومی پردیس شامل راهرو ها، تالار خلیج فارس، سالن اجتماعات",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P2Q4",
+                        questionCode: "S5P3Q4",
                         title: "زمان رسیدگی نیروهای فنی پردیس پس از اعلام بروز مشکل در سیستم",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P2Q5",
+                        questionCode: "S5P3Q5",
                         title: "میزان توانمندی نیروهای فنی پردیس در رفع مشکل",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P2Q6",
+                        questionCode: "S5P3Q6",
                         title: "بطور کلی چه امتیازی به این بخش می دهید",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P2Q7",
+                        questionCode: "S5P3Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
                         answer: ""
@@ -834,44 +834,44 @@ export const SurveyContent: Survey[] = [
                 pageTitle: "فن آوری اطلاعات",
                 questions: [
                     {
-                        questionCode: "S5P5Q1",
+                        questionCode: "S5P4Q1",
                         title: "کیفیت ارائه خدمات اینترنت در پردیس",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P5Q2",
+                        questionCode: "S5P4Q2",
                         title: "در صورت ایجاد مشکل در اتصال به اینترنت کدام یک از عوامل زیر علت عدم برقراری ارتباط بوده است",
                         type: "options",
                         answer: "6",
                         options: ["قطعی شبکه سراسری", "قطعی شبکه دانشگاه تهران", "قطعی شبکه داخلی پردیس", "قطعی به دلیل بروز رسانی سیستم های فن آوری اطلاعات", "عدم وجود تجهیزات اتصال به شبکه", "اطلاعی ندارم"]
                     },
                     {
-                        questionCode: "S5P5Q3",
+                        questionCode: "S5P4Q3",
                         title: "نحوه اطلاع رسانی این واحد در مورد چگونگی اتصال به شبکه",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P5Q4",
+                        questionCode: "S5P4Q4",
                         title: "تعامل واحد فن آوری اطلاعات در رفع مشکل شما",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P5Q5",
+                        questionCode: "S5P4Q5",
                         title: "میزان توانمندی نیروهای فنی پردیس در رفع مشکل",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P5Q6",
+                        questionCode: "S5P4Q6",
                         title: "بطور کلی چه امتیازی به این بخش می دهید",
                         type: "rating",
                         answer: ""
                     },
                     {
-                        questionCode: "S5P5Q7",
+                        questionCode: "S5P4Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
                         answer: ""
@@ -892,7 +892,7 @@ export const SurveyContent: Survey[] = [
                     {
                         questionCode: "S5P5Q2",
                         title: "کیفیت تصویر",
-                        type: "ratting",
+                        type: "rating",
                         answer: ""
                     },
                     {

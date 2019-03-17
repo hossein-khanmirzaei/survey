@@ -66,25 +66,31 @@ export class SurveyService {
 
   sendSurveyData() {
     let selectedSurveyType: number;
+    let tableName: string;
     switch (this.surveyAnswer.selectedSurveyType) {
       case 'DirectComment': {
         selectedSurveyType = 1;
+        tableName = 'direct_comment';
         break;
       }
       case 'ProfessorsResidence': {
         selectedSurveyType = 2;
+        tableName = 'professors_residence';
         break;
       }
       case 'StudentsResidence': {
         selectedSurveyType = 3;
+        tableName = 'students_residence';
         break;
       }
       case 'CateringFacilities': {
         selectedSurveyType = 4;
+        tableName = 'catering_facilities';
         break;
       }
       case 'EducationalFacilities': {
         selectedSurveyType = 5;
+        tableName = 'educational_facilities';
         break;
       }
       default: {
@@ -93,29 +99,20 @@ export class SurveyService {
       }
     }
 
-    // let dataToBeSent = {
-    //   'National_Code': this.surveyAnswer.nationalCode,
-    //   'Gender': this.surveyAnswer.gender == Gender.female ? 1 : 2,
-    //   'Age': this.surveyAnswer.age,
-    //   'Relation_Code': this.surveyAnswer.relationCode,
-    //   'Selection_Code': selectedSurveyType,
-    //   'Message_For': this.surveyAnswer.directCommentChoice,
-    //   'Message': this.surveyAnswer.directCommentAnswer,      
-    // }
-
     var dataToBeSent: ISurveyData = {
       National_Code: this.surveyAnswer.nationalCode,
-      Gender: this.surveyAnswer.gender == Gender.female ? 1 : 2,
+      Gender: this.surveyAnswer.gender.toString() == Gender[Gender.female] ? 1 : 2,
       Age: this.surveyAnswer.age,
       Relation_Code: this.surveyAnswer.relationCode,
       Selection_Code: selectedSurveyType,
       Message_For: this.surveyAnswer.directCommentChoice,
       Message: this.surveyAnswer.directCommentAnswer,
+      Overall_Rate: this.surveyAnswer.overallValue
     }
     this.surveyAnswer.ratingAnswers.forEach(element => {
       dataToBeSent[element.questionCode] = element.answerCode;
     });
-    console.log(JSON.stringify(dataToBeSent));
-    this.auth.add(dataToBeSent);
+    //console.log(JSON.stringify(dataToBeSent));
+    this.auth.add(dataToBeSent, tableName);
   }
 }

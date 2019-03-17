@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
-import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detection/constants';
 
 @Component({
   selector: 'app-overview-page',
@@ -11,8 +10,8 @@ import { isDefaultChangeDetectionStrategy } from '@angular/core/src/change_detec
 })
 export class OverviewPageComponent implements OnInit {
 
-  knOptions;
-  overalValue: number;
+  knOptions: any;
+  overallValue: number;
   rateChanged: boolean = false;
   constructor(private router: Router, private location: Location, private surveyService: SurveyService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
@@ -25,23 +24,23 @@ export class OverviewPageComponent implements OnInit {
   }
 
   getInitialData() {
-    this.overalValue = this.surveyService.surveyAnswer.overalValue;
+    this.overallValue = this.surveyService.surveyAnswer.overallValue;
     this.knOptions = {
       readOnly: true,
       skin: {
         type: 'tron',
         width: 5,
-        color: this.getColor(this.overalValue / 100),
+        color: this.getColor(this.overallValue / 100),
         spaceWidth: 3
       },
       animate: {
         enabled: false,
       },
       size: 300,
-      barColor: this.getColor(this.overalValue / 100),
+      barColor: this.getColor(this.overallValue / 100),
       trackWidth: 30,
       barWidth: 30,
-      textColor: this.getColor(this.overalValue / 100),
+      textColor: this.getColor(this.overallValue / 100),
       step: 5,
       max: 100,
     }
@@ -54,15 +53,15 @@ export class OverviewPageComponent implements OnInit {
   }
 
   increaseRate() {
-    if (this.overalValue <= 95) {
-      this.overalValue += 5;
+    if (this.overallValue <= 95) {
+      this.overallValue += 5;
       this.rangeChange();
     }
   }
 
   decreaseRate() {
-    if (this.overalValue >= 5) {
-      this.overalValue -= 5;
+    if (this.overallValue >= 5) {
+      this.overallValue -= 5;
       this.rangeChange();
     }
   }
@@ -70,28 +69,26 @@ export class OverviewPageComponent implements OnInit {
   rangeChange() {
     this.knOptions = {
       skin: {
-        color: this.getColor(this.overalValue / 100),
+        color: this.getColor(this.overallValue / 100),
       },
-      barColor: this.getColor(this.overalValue / 100),
-      textColor: this.getColor(this.overalValue / 100),
+      barColor: this.getColor(this.overallValue / 100),
+      textColor: this.getColor(this.overallValue / 100),
     }
     this.rateChanged = true;
   }
-  /*
-    onSubmit(validity: boolean) {
-      if (validity) {
-        this.surveyService.surveyAnswer.overalValue = this.overalValue;
-        this.router.navigateByUrl('/Last');
-      }
-      else {
-        $('#myModal').modal();
-      }
-    }
-  */
 
-  sendSurveyData() {
+  onSubmit() {
+    this.surveyService.surveyAnswer.overallValue = this.overallValue;
     this.surveyService.sendSurveyData();
+
+    //    if (validity) {
+    this.router.navigateByUrl('/Last');
+    //    }
+    //    else {
+    //$('#myModal').modal();
+    //    }
   }
+
   goBack() {
     this.location.back();
   }

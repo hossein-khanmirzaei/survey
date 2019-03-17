@@ -17,7 +17,7 @@ export class SurveyAnswer {
         public directCommentChoice: number,
         public directCommentAnswer: string,
         public ratingAnswers: RatingAnswer[],
-        public overalValue: number
+        public overallValue: number
     ) { }
 }
 
@@ -29,5 +29,6 @@ export interface ISurveyData {
     Selection_Code: number,
     Message_For: number,
     Message: string,
+    Overall_Rate: number,
     [key: string]: any
 }
