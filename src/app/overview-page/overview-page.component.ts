@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { SurveyAnswer } from '../survey-answer';
 
 @Component({
   selector: 'app-overview-page',
@@ -13,7 +16,7 @@ export class OverviewPageComponent implements OnInit {
   knOptions: any;
   overallValue: number;
   rateChanged: boolean = false;
-  constructor(private router: Router, private location: Location, private surveyService: SurveyService) {
+  constructor(private router: Router, private location: Location, private surveyService: SurveyService, private toastrService: ToastrService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -79,14 +82,22 @@ export class OverviewPageComponent implements OnInit {
 
   onSubmit() {
     this.surveyService.surveyAnswer.overallValue = this.overallValue;
-    this.surveyService.sendSurveyData();
-
-    //    if (validity) {
-    this.router.navigateByUrl('/Last');
-    //    }
-    //    else {
-    //$('#myModal').modal();
-    //    }
+    this.surveyService.sendSurveyData()
+      .subscribe(
+        (response) => {
+          if (response['success']) {
+            this.router.navigateByUrl('/Last');
+            this.surveyService.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
+          }
+          else {
+            this.toastrService.error('خطا در ارتیاط با سرور!', 'توجه!', {});
+          }
+        },
+        (error: HttpErrorResponse) => {
+          this.toastrService.error('خطا در ارتیاط با سرور!', 'توجه!', {});
+          console.log({ 'status': error.statusText, 'message': error.message });
+        }
+      )
   }
 
   goBack() {

@@ -6,11 +6,11 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthService) { }
+    constructor(private auth: AuthService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
-        const idToken = localStorage.getItem('access_token');
+        const idToken = this.auth.jwtToken;// localStorage.getItem('access_token');
         if (idToken) {
             request = request.clone({
                 setHeaders: {

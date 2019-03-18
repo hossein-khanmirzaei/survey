@@ -17,9 +17,4 @@ export class InitialPageComponent implements OnInit {
   ngOnInit() {
     this.surveyService.stopWatchingTimer();
   }
-
-  testAPI() {
-    this.auth.login();
-  }
-
 }

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './auth.service';
 import { Gender } from './gender.enum';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +16,11 @@ export class SurveyService {
 
   @ViewChild('imageElement') imageElement: ElementRef<any>;
 
+  private baseUrl = 'http://109.230.93.18/survey-api/api/';
   surveyAnswer: SurveyAnswer;
   modalMessage: string = 'لطفاً به تمامی سوالات پاسخ دهید.';
 
-  constructor(private router: Router, private userIdle: UserIdleService, private toastrService: ToastrService, private auth: AuthService) {
+  constructor(private router: Router, private userIdle: UserIdleService, private toastrService: ToastrService, private http: HttpClient, private auth: AuthService) {
     this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
     this.userIdle.onTimerStart().subscribe(
       (count) => {
@@ -112,7 +114,12 @@ export class SurveyService {
     this.surveyAnswer.ratingAnswers.forEach(element => {
       dataToBeSent[element.questionCode] = element.answerCode;
     });
-    //console.log(JSON.stringify(dataToBeSent));
-    this.auth.add(dataToBeSent, tableName);
+    return this.add(dataToBeSent, tableName);
+  }
+
+
+  add(answer: ISurveyData, tableName: string) {
+    const body = JSON.stringify(answer);
+    return this.http.post(this.baseUrl + 'index.php/add/' + tableName, body);
   }
 }

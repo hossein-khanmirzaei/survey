@@ -5,6 +5,7 @@ import { Gender } from '../gender.enum';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
 import { SurveyAnswer } from '../survey-answer';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-identity-page',
@@ -39,26 +40,25 @@ export class IdentityPageComponent implements OnInit {
       this.surveyService.surveyAnswer.nationalCode = this.nationalCode;
       this.surveyService.surveyAnswer.age = this.age;
       this.surveyService.surveyAnswer.gender = this.gender;
-      this.router.navigateByUrl('/Relation');
+      this.auth.login()
+        .subscribe(
+          (response) => {
+            if (response['JWT']) {
+              this.auth.jwtToken = response['JWT'];
+              this.router.navigateByUrl('/Relation');
+            }
+            else {
+              this.toastrService.error('خطا در ارتیاط با سرور!', 'توجه!', {});
+            }
+          },
+          (error: HttpErrorResponse) => {
+            this.toastrService.error('خطا در ارتیاط با سرور!', 'توجه!', {});
+            console.log({ 'status': error.statusText, 'message': error.message });
+          }
+        );
     }
     else {
       this.toastrService.error('لطفاً به تمامی سوالات پاسخ دهید.', 'توجه!', {});
     }
   }
-  /*
-    isValidIranianNationalCode(input) {
-      if (!/^\d{10}$/.test(input))
-        return false;
-  
-      var check = parseInt(input[9]);
-      var sum = 0;
-      var i;
-      for (i = 0; i < 9; ++i) {
-        sum += parseInt(input[i]) * (10 - i);
-      }
-      sum %= 11;
-  
-      return (sum < 2 && check == sum) || (sum >= 2 && check + sum == 11);
-    }
-  */
 }

@@ -7,12 +7,13 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private authenticationService: AuthService) { }
+    constructor(private auth: AuthService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
-                localStorage.clear();
+                this.auth.jwtToken = "";
+                //localStorage.clear();
             }
 
             const error = err.error.message || err.statusText;

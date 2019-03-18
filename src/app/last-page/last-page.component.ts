@@ -12,10 +12,10 @@ import { SurveyService } from '../survey.service';
 })
 export class LastPageComponent implements OnInit {
 
-  constructor(private router: Router, private surveyService: SurveyService) {
-    if (!this.surveyService.surveyAnswer.nationalCode) {
-      this.router.navigateByUrl('/Initial');
-    }
+  constructor() { //private router: Router, private surveyService: SurveyService
+    // if (!this.surveyService.surveyAnswer.nationalCode) {
+    //   this.router.navigateByUrl('/Initial');
+    // }
   }
 
   ngOnInit() {
