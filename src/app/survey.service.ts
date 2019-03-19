@@ -35,7 +35,7 @@ export class SurveyService {
     this.userIdle.onTimeout().subscribe(
       () => {
         this.restartTimer();
-        this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
+        this.resetAnswers();
         this.router.navigateByUrl('/Initial')
       }
     );
@@ -121,5 +121,27 @@ export class SurveyService {
   add(answer: ISurveyData, tableName: string) {
     const body = JSON.stringify(answer);
     return this.http.post(this.baseUrl + 'index.php/add/' + tableName, body);
+  }
+
+  resetAnswers() {
+    this.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
+    SurveyContent.forEach(
+      survey => {
+        survey.pages.forEach(
+          page => {
+            page.questions.forEach(
+              q => {
+                q.answer = ""
+              }
+            )
+          }
+        )
+      }
+    )
+    SurveyContent[0].pages[4].questions[1].answer = "6";
+    SurveyContent[1].pages[4].questions[1].answer = "6";
+    SurveyContent[3].pages[1].questions[0].answer = "4";
+    SurveyContent[3].pages[3].questions[1].answer = "6";
+    SurveyContent[3].pages[4].questions[5].answer = "1";
   }
 }

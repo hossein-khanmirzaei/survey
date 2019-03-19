@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SurveyAnswer, RatingAnswer } from '../survey-answer';
 
 @Component({
   selector: 'app-direct-comment-page',
@@ -40,11 +41,11 @@ export class DirectCommentPageComponent implements OnInit {
         .subscribe(
           (response) => {
             if (response['success']) {
-              console.log(response);
+              this.surveyService.resetAnswers();
               this.router.navigateByUrl('/Last');
             }
             else {
-              this.toastrService.error('خطا در ارتیاط با سرور!', 'توجه!', {});
+              this.toastrService.error('خطا در ارسال اطلاعات!', 'توجه!', {});
               console.log(response['failureMessage']);
             }
           }

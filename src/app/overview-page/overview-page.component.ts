@@ -5,6 +5,7 @@ import { SurveyService } from '../survey.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { SurveyAnswer } from '../survey-answer';
+import { SurveyContent } from '../survey-content';
 
 @Component({
   selector: 'app-overview-page',
@@ -86,11 +87,12 @@ export class OverviewPageComponent implements OnInit {
       .subscribe(
         (response) => {
           if (response['success']) {
+            this.surveyService.resetAnswers();
             this.router.navigateByUrl('/Last');
-            this.surveyService.surveyAnswer = new SurveyAnswer(null, null, null, null, null, null, null, [], 50);
           }
           else {
-            this.toastrService.error('خطا در ارتیاط با سرور!', 'توجه!', {});
+            this.toastrService.error('خطا در ارسال اطلاعات!', 'توجه!', {});
+            console.log(response['failureMessage']);
           }
         },
         (error: HttpErrorResponse) => {

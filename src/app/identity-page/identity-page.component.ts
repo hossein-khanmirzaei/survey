@@ -4,7 +4,6 @@ import { SurveyService } from '../survey.service';
 import { Gender } from '../gender.enum';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../auth.service';
-import { SurveyAnswer } from '../survey-answer';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
