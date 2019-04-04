@@ -60,4 +60,10 @@ export class IdentityPageComponent implements OnInit {
       this.toastrService.error('لطفاً به تمامی سوالات پاسخ دهید.', 'توجه!', {});
     }
   }
+  correctNumber(value: string) {
+    if (value == "nationalCode")
+      this.nationalCode = this.surveyService.persianToEnglish(this.nationalCode);
+    else if (value == "age" && !isNaN(parseInt(this.surveyService.persianToEnglish(this.age.toString()), 10)))
+      this.age = parseInt(this.surveyService.persianToEnglish(this.age.toString()), 10);
+  }
 }
