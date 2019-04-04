@@ -40,7 +40,7 @@ body {
 	/*821px;*/
 	float: left;
 	padding: 0 10px 0 40px;
-	height: 755px;
+	height: 815px;
 	/*555px*/
 }
 
@@ -49,7 +49,7 @@ body {
 	width: 409px;
 	/*370px;*/
 	float: right;
-	height: 755px;
+	height: 815px;
 	/*555px*/
 	text-align: center;
 	/*padding: 35px 0 0 0;*/
@@ -110,30 +110,3 @@ input[type="button"]:disabled {
 	text-align: right;
     opacity:1;
 }
-
-/*
-body {
-	background-image: url("assets/img/main-bg.jpg");
-	background-size: cover; 
-	font-family: IRANSans;
-	color: rgb(109, 112, 114);
-}
-.survey-header {
-	height: 133px;
-	background-image: url("assets/img/head.png");
-	background-repeat: no-repeat;
-	background-position: bottom;
-}
-.survey-footer {
-	height: 66px;
-	background-image: url("assets/img/footer.png");
-	background-repeat: no-repeat;
-	background-position: top;
-}
-.survey-copyright {
-	font-size: 12px !important;
-	text-align: left;
-	color: #ffffff;
-	padding: 8px 0px 0 25px;
-}
-*/
