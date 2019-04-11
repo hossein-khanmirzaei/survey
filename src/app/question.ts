@@ -3,5 +3,6 @@ export class Question {
     title: string;
     type: string;
     answer: string;
+    isAnswerOptional?: boolean;
     options?: string[];
 }

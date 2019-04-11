@@ -39,7 +39,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P1Q5",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -76,7 +77,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P2Q5",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -119,7 +121,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P3Q6",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -132,43 +135,50 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P4Q1",
                         title: "درصورتی که محل اقامت شما دارای آسانسور می باشد لطفا به این فرم پاسخ دهید",
                         type: "message",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P4Q2",
                         title: "کیفیت عملکرد آسانسور",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P4Q3",
                         title: "کیفیت کابین آسانسور",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P4Q4",
                         title: "تعداد خرابی آسانسور در زمان مراجعه شما",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P4Q5",
                         title: "زمان رسیدگی مسئول مهمان سرا پس از اعلام بروز مشکل در سیستم",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P4Q6",
                         title: "بطور کلی چه امتیازی به این بخش می دهید",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P4Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این بخش، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -182,7 +192,7 @@ export const SurveyContent: Survey[] = [
                         title: "کیفیت ارائه خدمات اینترنت محل اقامت",
                         type: "rating",
                         answer: ""
-                    },                
+                    },
                     {
                         questionCode: "S2P5Q2",
                         title: "در صورت ایجاد مشکل در اتصال به اینترنت کدام یک از عوامل زیر علت عدم برقراری ارتباط بوده است",
@@ -218,7 +228,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P5Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -243,7 +254,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P6Q3",
                         title: "در صورت عدم رضایت لطفا دلایل را در کادر زیر اعلان فرمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S2P6Q4",
@@ -279,7 +291,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S2P6Q9",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این واحد، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             }
@@ -323,7 +336,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P1Q5",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -360,7 +374,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P2Q5",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -403,7 +418,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P3Q6",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -416,43 +432,50 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P4Q1",
                         title: "درصورتی که محل اقامت شما دارای آسانسور می باشد لطفا به این فرم پاسخ دهید",
                         type: "message",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P4Q2",
                         title: "کیفیت عملکرد آسانسور",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P4Q3",
                         title: "کیفیت کابین آسانسور",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P4Q4",
                         title: "تعداد خرابی آسانسور در زمان مراجعه شما",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P4Q5",
                         title: "زمان رسیدگی واحد امور دانشجویی پس از اعلام بروز مشکل در سیستم",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P4Q6",
                         title: "بطور کلی چه امتیازی به این بخش می دهید",
                         type: "rating",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P4Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -502,7 +525,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P5Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -521,7 +545,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P6Q2",
                         title: "در صورت عدم رضایت لطفا عوامل مورد نظر را در کادر زیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S3P6Q3",
@@ -551,7 +576,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S3P6Q7",
                         title: "انتقاد سازنده خود را در جهت بهبود عملکرد این واحد در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             }
@@ -595,7 +621,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S4P1Q5",
                         title: "انتقاد سازنده خود را در جهت بهبود عملکرد در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -638,7 +665,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S4P2Q6",
                         title: "انتقاد سازنده خود در جهت بهبود عملکرد این واحد را در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -675,7 +703,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S4P3Q5",
                         title: "انتقاد سازنده خود در جهت بهبود عملکرد این واحد را در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             }
@@ -731,7 +760,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P1Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -775,7 +805,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P2Q6",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این بخش، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -824,7 +855,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P3Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -874,7 +906,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P4Q7",
                         title: "در صورت تمایل انتقاد و پیشنهاد سازنده خود را در رابطه با این سیستم، در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -887,7 +920,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P5Q1",
                         title: "همانگونه که استحضار دارید اخیرا سامانه نوینی به منظور رفاه حال اساتید و دانشجویان محترم در زمینه استفاده از دیتاپرژکتور و رایانه در کلاس با نام VDI راه اندازی گردیده است. به کمک این سامانه دیگر نیازی به لپ تاپ در کلاس نبوده و تنها با استفاده از یک صفحه کلید سیستم راه اندازی می شود. تعداد 5 کلاس هم اکنون در این پردیس با برچسب VDI مشخص شده و آماده بهره برداری می باشند. جهت استفاده از این سیستم می توان به واحد آموزش و یا واحد فن آوری اطلاعات پردیس مراجعه نمود. خواهشمند است در صورت استفاده از این سیستم فرم نظر سنجی ذیل را با هدف ارتقا و بهبود عملکرد سیستم پاسخ دهید.",
                         type: "message",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S5P5Q2",
@@ -930,7 +964,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P5Q8",
                         title: "تجربه خود را پس از استفاده از این سیستم در راستای بهبود عملکرد ما اعلام بفرمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             },
@@ -949,7 +984,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P6Q2",
                         title: "در صورت عدم رضایت لطفا عوامل مورد نظر را در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     },
                     {
                         questionCode: "S5P6Q3",
@@ -985,7 +1021,8 @@ export const SurveyContent: Survey[] = [
                         questionCode: "S5P6Q8",
                         title: "انتقاد سازنده خود را در جهت بهبود عملکرد این واحد در کادر ذیل وارد نمایید:",
                         type: "comment",
-                        answer: ""
+                        answer: "",
+                        isAnswerOptional: true
                     }
                 ]
             }

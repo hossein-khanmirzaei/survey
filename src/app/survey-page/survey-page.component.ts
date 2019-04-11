@@ -54,7 +54,7 @@ export class SurveyPageComponent implements OnInit {
   goToNextPage() {
     let isAllAnswersField: boolean = true;
     this.currentPage.questions.forEach(item => {
-      if ((item.type == "rating" || item.type == "options") && item.answer == "") {
+      if (item.type == "rating" && item.answer == "" && !item.isAnswerOptional) {
         isAllAnswersField = false;
       }
     });
