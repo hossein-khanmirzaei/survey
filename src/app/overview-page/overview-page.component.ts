@@ -86,13 +86,14 @@ export class OverviewPageComponent implements OnInit {
     this.surveyService.sendSurveyData()
       .subscribe(
         (response) => {
-          if (response['success']) {
+          if (response && response['success']) {
             this.surveyService.resetAnswers();
             this.router.navigateByUrl('/Last');
           }
           else {
             this.toastrService.error('خطا در ارسال اطلاعات!', 'توجه!', {});
-            console.log(response['failureMessage']);
+            if(response)
+              console.log(response['failureMessage']);
           }
         },
         (error: HttpErrorResponse) => {
