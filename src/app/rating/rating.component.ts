@@ -29,7 +29,6 @@ export class RatingComponent implements OnInit {
     this.question.answer = ans;
     this.color1 = this.color2 = this.color3 = this.color4 = this.color5 = "btn-outline-secondary";
     this.tuneAnswers();
-    //console.log((<HTMLButtonElement>e.currentTarget).value);
   }
 
   tuneAnswers() {

@@ -13,7 +13,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {
                 this.auth.jwtToken = "";
-                //localStorage.clear();
+                localStorage.clear();
             }
 
             const error = err.error.message || err.statusText;

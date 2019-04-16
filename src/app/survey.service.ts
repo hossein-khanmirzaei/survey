@@ -120,7 +120,6 @@ export class SurveyService {
 
   add(answer: ISurveyData, tableName: string) {
     const body = JSON.stringify(answer);
-    console.log(body);
     return this.http.post(this.baseUrl + 'index.php/add/' + tableName, body);
   }
 
