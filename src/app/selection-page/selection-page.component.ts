@@ -35,7 +35,7 @@ export class SelectionPageComponent implements OnInit {
 
   getInitialData() {
     this.relationCode = this.surveyService.surveyAnswer.relationCode;
-    this.selectedSurveyType = this.surveyService.surveyAnswer.selectedSurveyType;
+    this.selectedSurveyType = "DirectComment"; //this.surveyService.surveyAnswer.selectedSurveyType;
     if (this.relationCode == 1 || this.relationCode == 2) {
       this.isDirectCommentDisable = null;
       this.isProfessorsResidenceDisabled = null;
@@ -63,6 +63,7 @@ export class SelectionPageComponent implements OnInit {
 
   onSurveyTypeChanged(val: string) {
     this.surveyService.surveyAnswer.selectedSurveyType = val;
+    this.surveyService.resetMultichoiseQuestionAnswers();
     switch (val) {
       case 'DirectComment': {
         this.nextPageLink = "/DirectComment";

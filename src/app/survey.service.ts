@@ -145,6 +145,27 @@ export class SurveyService {
     SurveyContent[3].pages[4].questions[5].answer = "1";
   }
 
+  resetMultichoiseQuestionAnswers() {
+    SurveyContent.forEach(
+      survey => {
+        survey.pages.forEach(
+          page => {
+            page.questions.forEach(
+              q => {
+                q.answer = ""
+              }
+            )
+          }
+        )
+      }
+    )
+    SurveyContent[0].pages[4].questions[1].answer = "6";
+    SurveyContent[1].pages[4].questions[1].answer = "6";
+    SurveyContent[3].pages[1].questions[0].answer = "4";
+    SurveyContent[3].pages[3].questions[1].answer = "6";
+    SurveyContent[3].pages[4].questions[5].answer = "1";
+  }
+
   persianToEnglish(value: string): string {
     var newValue = "";
     for (var i = 0; i < value.length; i++) {
