@@ -24,6 +24,6 @@ export class AppComponent {
   }
 
   setImagePath(el: ElementRef<any>) {
-    this.rd.setAttribute(this.imageElement.nativeElement, "src", "./assets/img/banner1.png");
+    this.rd.setAttribute(this.imageElement.nativeElement, "src", "./assets/img/Front.jpg");
   }
 }

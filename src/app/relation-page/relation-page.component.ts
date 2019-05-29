@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { SurveyService } from '../survey.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +15,7 @@ export class RelationPageComponent implements OnInit {
 
   relationCode: number;
 
-  constructor(private router: Router, private surveyService: SurveyService, private toastrService: ToastrService) {
+  constructor(private rd: Renderer2, private router: Router, private surveyService: SurveyService, private toastrService: ToastrService) {
     if (!this.surveyService.surveyAnswer.nationalCode) {
       this.router.navigateByUrl('/Initial');
     }
@@ -23,6 +23,7 @@ export class RelationPageComponent implements OnInit {
 
   ngOnInit() {
     this.getInitialData();
+    this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/Front.jpg");
   }
 
   getInitialData() {

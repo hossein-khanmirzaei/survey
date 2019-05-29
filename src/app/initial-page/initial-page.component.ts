@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { SurveyService } from '../survey.service';
 import { AuthService } from '../auth.service';
 
@@ -12,9 +12,10 @@ import { AuthService } from '../auth.service';
 })
 export class InitialPageComponent implements OnInit {
 
-  constructor(private surveyService: SurveyService, private auth: AuthService) { }
+  constructor(private rd: Renderer2, private surveyService: SurveyService, private auth: AuthService) { }
 
   ngOnInit() {
     this.surveyService.stopWatchingTimer();
+    this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/Front.jpg");
   }
 }

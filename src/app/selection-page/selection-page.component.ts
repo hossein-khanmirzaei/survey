@@ -66,31 +66,32 @@ export class SelectionPageComponent implements OnInit {
     switch (val) {
       case 'DirectComment': {
         this.nextPageLink = "/DirectComment";
-        //this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner1.png");
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/HEAD.jpg");
         break;
       }
       case 'ProfessorsResidence': {
         this.nextPageLink = "/Survey/Page/1";
-        //this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner2.png");
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/PROOM.jpg");
         break;
       }
       case 'StudentsResidence': {
         this.nextPageLink = "/Survey/Page/1";
-        //this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner3.png");
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/SROOM.jpg");
         break;
       }
       case 'CateringFacilities': {
         this.nextPageLink = "/Survey/Page/1";
-        //this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner1.png");
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/COFFESHOP.jpg");
         break;
       }
       case 'EducationalFacilities': {
         this.nextPageLink = "/Survey/Page/1";
-        //this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/banner3.png");
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/INVHEX.jpg");
         break;
       }
       default: {
         this.nextPageLink = "/Initial";
+        this.rd.setAttribute(this.surveyService.imageElement.nativeElement, "src", "./assets/img/Front.jpg");
         break;
       }
     }
